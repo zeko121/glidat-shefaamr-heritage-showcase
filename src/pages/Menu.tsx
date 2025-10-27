@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { MapPin } from "lucide-react";
 import menuData from "@/data/menu.json";
+import { getMenuImage } from "@/utils/menuImages";
 
 interface MenuItem {
   name: string;
@@ -78,8 +79,7 @@ const Menu = () => {
         <div className="container mx-auto max-w-7xl">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {filteredItems.map((item, index) => {
-              // Use BASE_URL for production deployment with Hebrew filenames
-              const imagePath = `${import.meta.env.BASE_URL}images/${item.image}`;
+              const imagePath = getMenuImage(item.image);
             
               return (
                 <div
