@@ -1,92 +1,28 @@
 import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import FlavorCard from "@/components/FlavorCard";
 import { Button } from "@/components/ui/button";
-import flavorMastic from "@/assets/flavor-mastic.jpg";
-import flavorPistachio from "@/assets/flavor-pistachio.jpg";
-import flavorRose from "@/assets/flavor-rose.jpg";
 import { MapPin } from "lucide-react";
+import menuData from "@/data/menu.json";
 
-type Category = "all" | "classic" | "premium" | "seasonal";
-
-interface Flavor {
-  image: string;
+interface MenuItem {
   name: string;
-  description: string;
-  category: Category;
+  price: string;
+  image: string;
+}
+
+interface MenuCategory {
+  category: string;
+  items: MenuItem[];
 }
 
 const Menu = () => {
-  const [activeCategory, setActiveCategory] = useState<Category>("all");
+  const [activeCategory, setActiveCategory] = useState<string>("all");
+  const categories: MenuCategory[] = menuData.categories;
 
-  const flavors: Flavor[] = [
-    {
-      image: flavorMastic,
-      name: "Classic Mastic",
-      description: "Our signature flavor since 1939. Pure mastic resin creates an unforgettable taste that has defined our legacy.",
-      category: "classic",
-    },
-    {
-      image: flavorPistachio,
-      name: "Pistachio Dream",
-      description: "Rich, creamy perfection. Mediterranean pistachios ground fresh daily, combined with our mastic base.",
-      category: "classic",
-    },
-    {
-      image: flavorRose,
-      name: "Rose Water",
-      description: "Delicate floral elegance. Traditional rose water essence perfectly balanced with our signature recipe.",
-      category: "premium",
-    },
-    {
-      image: flavorMastic,
-      name: "Vanilla Mastic",
-      description: "A timeless classic. Madagascar vanilla meets our heritage mastic for a smooth, luxurious experience.",
-      category: "classic",
-    },
-    {
-      image: flavorPistachio,
-      name: "Cardamom & Honey",
-      description: "Aromatic sophistication. Warm cardamom spice harmonizes with pure wildflower honey.",
-      category: "premium",
-    },
-    {
-      image: flavorRose,
-      name: "Saffron Gold",
-      description: "Royal indulgence. Precious saffron threads create a golden masterpiece of flavor and luxury.",
-      category: "premium",
-    },
-    {
-      image: flavorMastic,
-      name: "Orange Blossom",
-      description: "Citrus serenity. Fresh orange blossom water brings Mediterranean sunshine to every bite.",
-      category: "seasonal",
-    },
-    {
-      image: flavorPistachio,
-      name: "Date & Walnut",
-      description: "Rich heritage blend. Sweet Medjool dates and toasted walnuts in our creamy mastic base.",
-      category: "seasonal",
-    },
-    {
-      image: flavorRose,
-      name: "Lavender Honey",
-      description: "Floral harmony. Delicate lavender essence swirled with aromatic honey from local fields.",
-      category: "seasonal",
-    },
-  ];
-
-  const categories = [
-    { id: "all" as Category, label: "All Flavors" },
-    { id: "classic" as Category, label: "Classic" },
-    { id: "premium" as Category, label: "Premium" },
-    { id: "seasonal" as Category, label: "Seasonal" },
-  ];
-
-  const filteredFlavors = activeCategory === "all" 
-    ? flavors 
-    : flavors.filter(flavor => flavor.category === activeCategory);
+  const filteredItems = activeCategory === "all" 
+    ? categories.flatMap(cat => cat.items.map(item => ({ ...item, category: cat.category })))
+    : categories.find(cat => cat.category === activeCategory)?.items.map(item => ({ ...item, category: activeCategory })) || [];
 
   return (
     <div className="min-h-screen">
@@ -108,35 +44,61 @@ const Menu = () => {
       <section className="py-12 px-6 bg-card border-b border-border">
         <div className="container mx-auto">
           <div className="flex flex-wrap justify-center gap-4">
+            <Button
+              onClick={() => setActiveCategory("all")}
+              variant={activeCategory === "all" ? "default" : "outline"}
+              className={`font-body font-semibold px-6 py-3 rounded-full transition-all duration-300 ${
+                activeCategory === "all"
+                  ? "bg-primary text-primary-foreground shadow-lg"
+                  : "border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+              }`}
+            >
+              All Items
+            </Button>
             {categories.map((category) => (
               <Button
-                key={category.id}
-                onClick={() => setActiveCategory(category.id)}
-                variant={activeCategory === category.id ? "default" : "outline"}
+                key={category.category}
+                onClick={() => setActiveCategory(category.category)}
+                variant={activeCategory === category.category ? "default" : "outline"}
                 className={`font-body font-semibold px-6 py-3 rounded-full transition-all duration-300 ${
-                  activeCategory === category.id
+                  activeCategory === category.category
                     ? "bg-primary text-primary-foreground shadow-lg"
                     : "border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
                 }`}
               >
-                {category.label}
+                {category.category}
               </Button>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Flavors Grid */}
+      {/* Menu Items Grid */}
       <section className="py-20 px-6">
         <div className="container mx-auto max-w-7xl">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredFlavors.map((flavor, index) => (
-              <FlavorCard
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {filteredItems.map((item, index) => (
+              <div
                 key={index}
-                image={flavor.image}
-                name={flavor.name}
-                description={flavor.description}
-              />
+                className="group relative overflow-hidden rounded-lg bg-card shadow-md transition-all duration-500 hover:shadow-xl hover:-translate-y-1"
+              >
+                <div className="aspect-square overflow-hidden bg-muted">
+                  <div className="w-full h-full flex items-center justify-center text-muted-foreground">
+                    <span className="text-sm">{item.name}</span>
+                  </div>
+                </div>
+                
+                <div className="p-4">
+                  <h3 className="font-display text-lg font-semibold text-foreground mb-2 text-right">
+                    {item.name}
+                  </h3>
+                  <p className="font-body text-xl text-primary font-bold text-right">
+                    {item.price}
+                  </p>
+                </div>
+                
+                <div className="absolute inset-0 border-2 border-transparent group-hover:border-primary transition-all duration-500 rounded-lg" />
+              </div>
             ))}
           </div>
         </div>
