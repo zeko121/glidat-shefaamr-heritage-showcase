@@ -4,7 +4,6 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { MapPin } from "lucide-react";
 import menuData from "@/data/menu.json";
-import { getMenuImageUrl, getPlaceholderUrl } from "@/lib/storage";
 
 interface MenuItem {
   name: string;
@@ -79,8 +78,7 @@ const Menu = () => {
         <div className="container mx-auto max-w-7xl">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {filteredItems.map((item, index) => {
-              // Get image URL from Supabase Storage
-              const imagePath = getMenuImageUrl(item.image);
+              const imagePath = `/images/${item.image}`;
             
               return (
                 <div
@@ -93,7 +91,7 @@ const Menu = () => {
                       alt={item.name}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       onError={(e) => {
-                        e.currentTarget.src = getPlaceholderUrl();
+                        e.currentTarget.src = '/placeholder.png';
                       }}
                     />
                   </div>
