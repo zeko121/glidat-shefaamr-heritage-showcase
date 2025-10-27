@@ -35,10 +35,10 @@ const Menu = () => {
       <section className="relative h-[40vh] flex items-center justify-center bg-gradient-to-br from-primary/20 to-secondary mt-16">
         <div className="text-center px-6">
           <h1 className="font-display text-5xl md:text-7xl font-bold text-foreground mb-4">
-            Our Flavors
+            הטעמים שלנו
           </h1>
           <p className="font-body text-xl text-muted-foreground">
-            Handcrafted with tradition, served with love
+            מיוצר בעבודת יד עם מסורת, מוגש באהבה
           </p>
         </div>
       </section>
@@ -56,7 +56,7 @@ const Menu = () => {
                   : "border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
               }`}
             >
-              All Items
+              כל הפריטים
             </Button>
             {categories.map((category) => (
               <Button
@@ -152,40 +152,40 @@ const Menu = () => {
         <div className="container mx-auto max-w-4xl text-center">
           <MapPin className="w-16 h-16 text-primary mx-auto mb-6" />
           <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Visit Us Today
+            בואו לבקר אותנו היום
           </h2>
           <p className="font-body text-lg text-muted-foreground mb-8">
-            Experience our handcrafted flavors at any of our three locations across Israel.
-            Each scoop is made fresh daily using our traditional family recipe.
+            חוו את הטעמים המיוצרים בעבודת יד שלנו בכל אחד משלושת המיקומים שלנו ברחבי ישראל.
+            כל כדור מיוצר טרי מדי יום באמצעות המתכון המסורתי המשפחתי שלנו.
           </p>
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             <div className="bg-card rounded-lg p-6 shadow-md">
               <h3 className="font-display text-xl font-bold text-foreground mb-2">
-                Shefa'amr Original
+                שפרעם המקורי
               </h3>
               <p className="font-body text-sm text-muted-foreground">
-                Historic Quarter, Shefa'amr
+                הרובע ההיסטורי, שפרעם
               </p>
             </div>
             <div className="bg-card rounded-lg p-6 shadow-md">
               <h3 className="font-display text-xl font-bold text-foreground mb-2">
-                Haifa Branch
+                סניף חיפה
               </h3>
               <p className="font-body text-sm text-muted-foreground">
-                German Colony, Haifa
+                המושבה הגרמנית, חיפה
               </p>
             </div>
             <div className="bg-card rounded-lg p-6 shadow-md">
               <h3 className="font-display text-xl font-bold text-foreground mb-2">
-                Tel Aviv Location
+                סניף תל אביב
               </h3>
               <p className="font-body text-sm text-muted-foreground">
-                Neve Tzedek, Tel Aviv
+                נווה צדק, תל אביב
               </p>
             </div>
           </div>
           <p className="font-body text-primary font-semibold mt-8 text-lg">
-            Open Daily: 9:00 AM – 11:00 PM
+            פתוח יומי: 9:00 – 23:00
           </p>
         </div>
       </section>

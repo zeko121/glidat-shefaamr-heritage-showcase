@@ -10,22 +10,22 @@ const Footer = () => {
               Glidat Shefa'amr
             </h3>
             <p className="text-muted-foreground font-body italic">
-              Crafting authentic mastic ice cream since 1939
+              מייצרים גלידת מסטיק אותנטית מאז 1939
             </p>
           </div>
           
           <div>
             <h4 className="font-display text-lg font-semibold mb-4 text-foreground">
-              Hours
+              שעות פעילות
             </h4>
             <p className="text-muted-foreground font-body">
-              Daily: 9:00 AM – 11:00 PM
+              יומי: 9:00 – 23:00
             </p>
           </div>
           
           <div>
             <h4 className="font-display text-lg font-semibold mb-4 text-foreground">
-              Connect
+              צור קשר
             </h4>
             <div className="flex justify-center md:justify-start space-x-4">
               <a
@@ -55,7 +55,7 @@ const Footer = () => {
         
         <div className="mt-8 pt-8 border-t border-border text-center">
           <p className="text-sm text-muted-foreground font-body">
-            © {new Date().getFullYear()} Glidat Shefa'amr. All rights reserved. | Zeitoun Family Heritage
+            © {new Date().getFullYear()} גלידת שפרעם. כל הזכויות שמורות | מורשת משפחת זיתון
           </p>
         </div>
       </div>

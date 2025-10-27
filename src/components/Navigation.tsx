@@ -5,9 +5,9 @@ const Navigation = () => {
   const location = useLocation();
   
   const links = [
-    { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-    { name: "Menu", path: "/menu" },
+    { name: "בית", path: "/" },
+    { name: "אודות", path: "/about" },
+    { name: "תפריט", path: "/menu" },
   ];
 
   return (
@@ -20,7 +20,7 @@ const Navigation = () => {
             </h1>
           </Link>
           
-          <div className="flex items-center space-x-8">
+          <div className="flex items-center space-x-reverse space-x-8">
             {links.map((link) => (
               <Link
                 key={link.path}

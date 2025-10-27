@@ -13,25 +13,25 @@ const Index = () => {
   const flavors = [
     {
       image: flavorMastic,
-      name: "Classic Mastic",
-      description: "Our signature flavor, crafted from the original 1939 family recipe with pure mastic",
+      name: "מסטיק קלאסי",
+      description: "הטעם המיוחד שלנו, מיוצר לפי המתכון המשפחתי המקורי משנת 1939 עם מסטיק טהור",
     },
     {
       image: flavorPistachio,
-      name: "Pistachio Dream",
-      description: "Rich, creamy pistachio ice cream made with the finest Mediterranean nuts",
+      name: "חלום פיסטוק",
+      description: "גלידת פיסטוק עשירה וקרמית עשויה מהאגוזים הים תיכוניים המשובחים ביותר",
     },
     {
       image: flavorRose,
-      name: "Rose Water",
-      description: "Delicate floral notes perfectly balanced with our signature mastic base",
+      name: "מי ורדים",
+      description: "נגיעות פרחוניות עדינות מאוזנות בצורה מושלמת עם בסיס המסטיק המיוחד שלנו",
     },
   ];
 
   const locations = [
-    { name: "Shefa'amr Original", address: "Historic Quarter, Shefa'amr" },
-    { name: "Haifa Branch", address: "German Colony, Haifa" },
-    { name: "Tel Aviv Location", address: "Neve Tzedek, Tel Aviv" },
+    { name: "שפרעם המקורי", address: "הרובע ההיסטורי, שפרעם" },
+    { name: "סניף חיפה", address: "המושבה הגרמנית, חיפה" },
+    { name: "סניף תל אביב", address: "נווה צדק, תל אביב" },
   ];
 
   return (
@@ -49,14 +49,14 @@ const Index = () => {
         
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
           <h1 className="font-display text-5xl md:text-7xl font-bold text-background mb-6 animate-fade-in-up">
-            Crafting Authentic Mastic Ice Cream
+            מייצרים גלידת מסטיק אותנטית
           </h1>
           <p className="font-display text-2xl md:text-3xl text-background/90 mb-8 italic" style={{ animationDelay: "0.2s" }}>
-            Since 1939
+            מאז 1939
           </p>
           <p className="font-body text-lg md:text-xl text-background/80 mb-10 max-w-2xl mx-auto" style={{ animationDelay: "0.4s" }}>
-            Four generations of the Zeitoun family have preserved the art of handcrafted mastic ice cream,
-            bringing you the authentic taste of heritage with every scoop.
+            ארבעה דורות של משפחת זיתון שימרו את אומנות הגלידה בעבודת יד עם מסטיק,
+            ומביאים לכם את הטעם האותנטי של מורשת עם כל כדור גלידה.
           </p>
           <Link to="/about">
             <Button 
@@ -64,7 +64,7 @@ const Index = () => {
               className="bg-primary hover:bg-primary/90 text-primary-foreground font-body font-semibold px-8 py-6 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 gold-shimmer"
               style={{ animationDelay: "0.6s" }}
             >
-              Learn Our Story
+              למדו על הסיפור שלנו
             </Button>
           </Link>
         </div>
@@ -74,13 +74,13 @@ const Index = () => {
       <section className="py-20 px-6">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6">
-            A Legacy of Flavor
+            מורשת של טעם
           </h2>
           <p className="font-body text-lg text-muted-foreground leading-relaxed">
-            In the heart of Shefa'amr, our story began in the 1930s when the Zeitoun family
-            first perfected their mastic-based ice cream recipe. Today, we continue this proud
-            tradition, using only the finest natural ingredients and time-honored techniques
-            to create ice cream that tells a story of heritage, passion, and authenticity.
+            בלב שפרעם, הסיפור שלנו החל בשנות ה-30 כאשר משפחת זיתון
+            שכללה לראשונה את מתכון הגלידה המבוסס על מסטיק. היום, אנו ממשיכים את המסורת הגאה הזו,
+            תוך שימוש רק במרכיבים טבעיים מהמובחרים ובטכניקות מסורתיות
+            כדי ליצור גלידה שמספרת סיפור של מורשת, תשוקה ואותנטיות.
           </p>
         </div>
       </section>
@@ -90,10 +90,10 @@ const Index = () => {
         <div className="container mx-auto">
           <div className="text-center mb-12">
             <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
-              Signature Flavors
+              טעמים מיוחדים
             </h2>
             <p className="font-body text-lg text-muted-foreground">
-              Each flavor crafted with love and tradition
+              כל טעם מיוצר באהבה ובמסורת
             </p>
           </div>
           
@@ -115,7 +115,7 @@ const Index = () => {
                 variant="outline"
                 className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-body font-semibold px-8 py-6 text-lg rounded-full transition-all duration-300"
               >
-                View Full Menu
+                צפו בתפריט המלא
               </Button>
             </Link>
           </div>
@@ -127,10 +127,10 @@ const Index = () => {
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-12">
             <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
-              Visit Us
+              בואו לבקר אותנו
             </h2>
             <p className="font-body text-lg text-muted-foreground">
-              Experience our heritage at three beautiful locations
+              חוו את המורשת שלנו בשלושה מיקומים יפהפיים
             </p>
           </div>
           
@@ -148,7 +148,7 @@ const Index = () => {
                   {location.address}
                 </p>
                 <p className="font-body text-sm text-primary font-semibold">
-                  Open Daily: 9:00 – 23:00
+                  פתוח יומי: 9:00 – 23:00
                 </p>
               </div>
             ))}
