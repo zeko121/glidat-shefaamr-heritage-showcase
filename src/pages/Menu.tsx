@@ -78,8 +78,8 @@ const Menu = () => {
         <div className="container mx-auto max-w-7xl">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {filteredItems.map((item, index) => {
-              // URL encode the filename to handle Hebrew characters
-              const imagePath = `/images/${encodeURIComponent(item.image)}`;
+              // Use BASE_URL for production deployment + URL encode Hebrew characters
+              const imagePath = `${import.meta.env.BASE_URL}images/${encodeURIComponent(item.image)}`;
             
               return (
                 <div
@@ -92,7 +92,7 @@ const Menu = () => {
                       alt={item.name}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       onError={(e) => {
-                        e.currentTarget.src = '/placeholder.png';
+                        e.currentTarget.src = `${import.meta.env.BASE_URL}placeholder.png`;
                       }}
                     />
                   </div>
