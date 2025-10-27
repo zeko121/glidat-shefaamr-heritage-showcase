@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
+import logo from "@/assets/placeholder.png"; // adjust path if needed
 
 const Navigation = () => {
   const location = useLocation();
@@ -17,13 +18,15 @@ const Navigation = () => {
         <div className="flex items-center justify-between">
           {/* Logo on the left */}
           <Link to="/" className="flex items-center space-x-2">
-            <h1 className="text-2xl font-display font-bold text-foreground tracking-tight">
-              גלידת שפרעם
-            </h1>
+            <img
+              src={logo}
+              alt="Glidat Shefa'amr Logo"
+              className="h-10 w-auto object-contain"
+            />
           </Link>
 
           {/* Links on the right */}
-          <div className="flex items-center space-x-8">
+          <div dir="rtl" className="flex items-center space-x-reverse space-x-8">
             {links.map((link) => (
               <Link
                 key={link.path}
