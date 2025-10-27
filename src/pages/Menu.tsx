@@ -78,7 +78,8 @@ const Menu = () => {
         <div className="container mx-auto max-w-7xl">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {filteredItems.map((item, index) => {
-              const imagePath = `/images/${item.image}`;
+              // URL encode the filename to handle Hebrew characters
+              const imagePath = `/images/${encodeURIComponent(item.image)}`;
             
               return (
                 <div
