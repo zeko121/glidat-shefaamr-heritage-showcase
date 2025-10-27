@@ -77,29 +77,40 @@ const Menu = () => {
       <section className="py-20 px-6">
         <div className="container mx-auto max-w-7xl">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {filteredItems.map((item, index) => (
-              <div
-                key={index}
-                className="group relative overflow-hidden rounded-lg bg-card shadow-md transition-all duration-500 hover:shadow-xl hover:-translate-y-1"
-              >
-                <div className="aspect-square overflow-hidden bg-muted">
-                  <div className="w-full h-full flex items-center justify-center text-muted-foreground">
-                    <span className="text-sm">{item.name}</span>
+            {filteredItems.map((item, index) => {
+              // Convert image path from Windows format to web format
+              const imagePath = item.image.replace(/\\/g, '/');
+              
+              return (
+                <div
+                  key={index}
+                  className="group relative overflow-hidden rounded-lg bg-card shadow-md transition-all duration-500 hover:shadow-xl hover:-translate-y-1"
+                >
+                  <div className="aspect-square overflow-hidden bg-muted">
+                    <img
+                      src={`/${imagePath}`}
+                      alt={item.name}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      onError={(e) => {
+                        // Fallback to placeholder if image fails to load
+                        e.currentTarget.src = '/placeholder.svg';
+                      }}
+                    />
                   </div>
+                  
+                  <div className="p-4">
+                    <h3 className="font-display text-lg font-semibold text-foreground mb-2 text-right">
+                      {item.name}
+                    </h3>
+                    <p className="font-body text-xl text-primary font-bold text-right">
+                      {item.price}
+                    </p>
+                  </div>
+                  
+                  <div className="absolute inset-0 border-2 border-transparent group-hover:border-primary transition-all duration-500 rounded-lg" />
                 </div>
-                
-                <div className="p-4">
-                  <h3 className="font-display text-lg font-semibold text-foreground mb-2 text-right">
-                    {item.name}
-                  </h3>
-                  <p className="font-body text-xl text-primary font-bold text-right">
-                    {item.price}
-                  </p>
-                </div>
-                
-                <div className="absolute inset-0 border-2 border-transparent group-hover:border-primary transition-all duration-500 rounded-lg" />
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
