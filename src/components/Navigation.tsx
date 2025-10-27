@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import logo from "src/assets/images/placeholder.png"; // adjust path if needed
+import logo from "@/assets/images/placeholder.png";
 
 const Navigation = () => {
   const location = useLocation();
