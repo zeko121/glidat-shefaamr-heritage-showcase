@@ -2,7 +2,8 @@ import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { MapPin } from "lucide-react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { MapPin, X } from "lucide-react";
 import menuData from "@/data/menu.json";
 import { getMenuImage } from "@/utils/menuImages";
 
@@ -19,6 +20,7 @@ interface MenuCategory {
 
 const Menu = () => {
   const [activeCategory, setActiveCategory] = useState<string>("all");
+  const [selectedItem, setSelectedItem] = useState<(MenuItem & { category: string }) | null>(null);
   const categories: MenuCategory[] = menuData.categories;
 
   const filteredItems = activeCategory === "all" 
@@ -84,7 +86,8 @@ const Menu = () => {
               return (
                 <div
                   key={index}
-                  className="group relative overflow-hidden rounded-lg bg-card shadow-md transition-all duration-500 hover:shadow-xl hover:-translate-y-1"
+                  onClick={() => setSelectedItem(item)}
+                  className="group relative overflow-hidden rounded-lg bg-card shadow-md transition-all duration-500 hover:shadow-xl hover:-translate-y-1 cursor-pointer"
                 >
                   <div className="aspect-square overflow-hidden bg-muted">
                     <img
@@ -111,6 +114,38 @@ const Menu = () => {
           </div>
         </div>
       </section>
+
+      {/* Item Detail Dialog */}
+      <Dialog open={!!selectedItem} onOpenChange={() => setSelectedItem(null)}>
+        <DialogContent className="max-w-2xl bg-card">
+          <DialogHeader>
+            <DialogTitle className="font-display text-2xl font-bold text-right">
+              {selectedItem?.name}
+            </DialogTitle>
+          </DialogHeader>
+          
+          {selectedItem && (
+            <div className="space-y-6">
+              <div className="aspect-video overflow-hidden rounded-lg bg-muted">
+                <img
+                  src={getMenuImage(selectedItem.image)}
+                  alt={selectedItem.name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              
+              <div className="flex justify-between items-center">
+                <p className="font-body text-3xl text-primary font-bold">
+                  {selectedItem.price}
+                </p>
+                <p className="font-body text-muted-foreground">
+                  {selectedItem.category}
+                </p>
+              </div>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
 
       {/* Visit Us Section */}
       <section className="py-20 px-6 bg-gradient-to-br from-secondary to-muted">
