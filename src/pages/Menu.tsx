@@ -130,7 +130,7 @@ const Menu = () => {
                 <img
                   src={getMenuImage(selectedItem.image)}
                   alt={selectedItem.name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
               </div>
               
