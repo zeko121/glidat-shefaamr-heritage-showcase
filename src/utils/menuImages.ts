@@ -1,103 +1,103 @@
 // Import all menu images from assets folder
 import placeholder from "@/assets/images/placeholder.png";
-import גלידת_שפרעם_קטן from "@/assets/images/גלידת_שפרעם_קטן.jpg";
-import גלידת_שפרעם_בינוני from "@/assets/images/גלידת_שפרעם_בינוני.jpg";
-import גלידת_שפרעם_גדול from "@/assets/images/גלידת_שפרעם_גדול.jpg";
-import גלידת_שפרעם_בכוס_מפנקת from "@/assets/images/גלידת_שפרעם_בכוס_מפנקת.jpg";
-import גלידת_איטלקית_קטן from "@/assets/images/גלידת_איטלקית_קטן.jpg";
-import גלידת_איטלקית_גדול from "@/assets/images/גלידת_איטלקית_גדול.jpg";
-import גלידה_איטלקית from "@/assets/images/גלידה_איטלקית.jpg";
-import גלידת_אמירקאית_בינוני from "@/assets/images/גלידת_אמירקאית_בינוני.jpg";
-import גלידת_אמירקאית_גדול from "@/assets/images/גלידת_אמירקאית_גדול.jpg";
-import גלידה_בורמה from "@/assets/images/גלידה_בורמה.jpg";
-import גלידה_סחלב_לוטוס from "@/assets/images/גלידה_סחלב_לוטוס.png";
-import גלידה_עם_כנאפה_חמה from "@/assets/images/גלידה_עם_כנאפה_חמה.jpg";
-import גלידה_עם_קטאייף_חמה from "@/assets/images/גלידה_עם_קטאייף_חמה.jpg";
-import גלידה_שומשומית from "@/assets/images/גלידה_שומשומית.jpg";
-import גלידת_טיראמיסו from "@/assets/images/גלידת_טיראמיסו.jpg";
-import גלידת_ליאלי_ביירות from "@/assets/images/גלידת_ליאלי_ביירות.jpg";
-import גלידה_עם_אספרסו from "@/assets/images/גלידה_עם_אספרסו.jpg";
-import קינוח_גלידה_שוקולד_דובאי from "@/assets/images/קינוח_גלידה_שוקולד_דובאי.png";
-import וואפל_בלגי from "@/assets/images/וואפל_בלגי.jpg";
-import וואפל_בלגי_כדור_גלידה_קצפת from "@/assets/images/וואפל_בלגי_כדור_גלידה_קצפת.jpg";
-import וואפל_בלגי_דילוקס from "@/assets/images/וואפל_בלגי_דילוקס_2_כדורי_גלידה_קצפת_פירות_שוקלד_חם.jpg";
-import קרפ_צרפתי from "@/assets/images/קרפ_צרפתי.jpg";
-import קרפ_צרפתי_כדור_גלידה_קצפת from "@/assets/images/קרפ_צרפתי_כדור_גלידה_קצפת.jpg";
-import קרואסון_עם_גלידה from "@/assets/images/קרואסון_עם_גלידה.jpg";
-import כדורי_פנקייק from "@/assets/images/כדורי_פנקייק.jpg";
-import קאפ_קייק_עם_גלידה from "@/assets/images/קאפ_קייק_עם_גלידה.png";
-import עוגת_סופלה_עם_גלידה from "@/assets/images/עוגת_סופלה_עם_גלידה.jpg";
-import עוגת_גלידת_גבינה_בטעם_תות from "@/assets/images/עוגת_גלידת_גבינה_בטעם_תות.jpg";
-import עוגת_גלידת_גבינה_בטעם_פירות_יער from "@/assets/images/עוגת_גלידת_גבינה_בטעם_פירות_יער.jpg";
-import עוגת_גלידת_גבינה_בטעם_תפוז from "@/assets/images/עוגת_גלידת_גבינה_בטעם_תפוז.jpg";
-import עוגת_גלידה_מריר from "@/assets/images/עוגת_גלידה_מריר.jpg";
-import פאי_אגוזים from "@/assets/images/פאי_אגוזים.jpg";
-import יוגורט_קטן_עם_מגוון_פירות from "@/assets/images/יוגורט_קטן_עם_מגוון_פירות.jpg";
-import יוגורט_גדול_עם_מגוון_פירות from "@/assets/images/יוגורט_גדול_עם_מגוון_פירות.jpg";
-import מילקשייק from "@/assets/images/מילקשייק.jpg";
-import תפוז from "@/assets/images/תפוז.jpg";
-import גזר from "@/assets/images/גזר.jpg";
-import תפוחים from "@/assets/images/תפוחים.jpg";
-import לימונענע from "@/assets/images/לימונענע.jpg";
-import נוריה from "@/assets/images/נוריה.jpg";
-import קפוצ_ינו from "@/assets/images/קפוצ_ינו.jpg";
-import אספרסו_קצר from "@/assets/images/אספרסו_קצר.jpg";
-import נס_קפה from "@/assets/images/נס_קפה.jpg";
-import שוקו_חם from "@/assets/images/שוקו_חם.jpg";
-import שוקלד_חם from "@/assets/images/שוקלד_חם.jpg";
-import תה from "@/assets/images/תה.jpg";
-import סחלב_חם from "@/assets/images/סחלב_חם.jpg";
-import סחלב_בטעמים_קינדר_לוטוס from "@/assets/images/סחלב_בטעמים_קינדר_לוטוס.jpg";
+import glidat_shfaram_small from "@/assets/images/glidat_shfaram_small.jpg";
+import glidat_shfaram_medium from "@/assets/images/glidat_shfaram_medium.jpg";
+import glidat_shfaram_large from "@/assets/images/glidat_shfaram_large.jpg";
+import glidat_shfaram_cup_deluxe from "@/assets/images/glidat_shfaram_cup_deluxe.jpg";
+import italian_icecream_small from "@/assets/images/italian_icecream_small.jpg";
+import italian_icecream_large from "@/assets/images/italian_icecream_large.jpg";
+import italian_icecream from "@/assets/images/italian_icecream.jpg";
+import american_icecream_medium from "@/assets/images/american_icecream_medium.jpg";
+import american_icecream_large from "@/assets/images/american_icecream_large.jpg";
+import burma_icecream from "@/assets/images/burma_icecream.jpg";
+import sahlab_lotus_icecream from "@/assets/images/sahlab_lotus_icecream.png";
+import icecream_knafeh_hot from "@/assets/images/icecream_knafeh_hot.jpg";
+import icecream_kataif_hot from "@/assets/images/icecream_kataif_hot.jpg";
+import sesame_icecream from "@/assets/images/sesame_icecream.jpg";
+import tiramisu_icecream from "@/assets/images/tiramisu_icecream.jpg";
+import layali_beirut_icecream from "@/assets/images/layali_beirut_icecream.jpg";
+import icecream_with_espresso from "@/assets/images/icecream_with_espresso.jpg";
+import dubai_chocolate_icecream from "@/assets/images/dubai_chocolate_icecream.png";
+import belgian_waffle from "@/assets/images/belgian_waffle.jpg";
+import belgian_waffle_icecream_whippedcream from "@/assets/images/belgian_waffle_icecream_whippedcream.jpg";
+import belgian_waffle_deluxe from "@/assets/images/belgian_waffle_deluxe.jpg";
+import french_crepe from "@/assets/images/french_crepe.jpg";
+import french_crepe_icecream_whippedcream from "@/assets/images/french_crepe_icecream_whippedcream.jpg";
+import croissant_with_icecream from "@/assets/images/croissant_with_icecream.jpg";
+import pancake_balls from "@/assets/images/pancake_balls.jpg";
+import cupcake_with_icecream from "@/assets/images/cupcake_with_icecream.png";
+import souffle_with_icecream from "@/assets/images/souffle_with_icecream.jpg";
+import cheesecake_strawberry from "@/assets/images/cheesecake_strawberry.jpg";
+import cheesecake_forestberries from "@/assets/images/cheesecake_forestberries.jpg";
+import cheesecake_orange from "@/assets/images/cheesecake_orange.jpg";
+import darkchoco_icecream_cake from "@/assets/images/darkchoco_icecream_cake.jpg";
+import nuts_pie from "@/assets/images/nuts_pie.jpg";
+import yogurt_small_fruitmix from "@/assets/images/yogurt_small_fruitmix.jpg";
+import yogurt_large_fruitmix from "@/assets/images/yogurt_large_fruitmix.jpg";
+import milkshake from "@/assets/images/milkshake.jpg";
+import orange_juice from "@/assets/images/orange_juice.jpg";
+import carrot_juice from "@/assets/images/carrot_juice.jpg";
+import apple_juice from "@/assets/images/apple_juice.jpg";
+import lemon_mint_juice from "@/assets/images/lemon_mint_juice.jpg";
+import noria_dessert from "@/assets/images/noria_dessert.jpg";
+import cappuccino from "@/assets/images/cappuccino.jpg";
+import espresso_short from "@/assets/images/espresso_short.jpg";
+import nescafe from "@/assets/images/nescafe.jpg";
+import hot_chocolate_milk from "@/assets/images/hot_chocolate_milk.jpg";
+import hot_chocolate from "@/assets/images/hot_chocolate.jpg";
+import tea from "@/assets/images/tea.jpg";
+import sahlab_hot from "@/assets/images/sahlab_hot.jpg";
+import sahlab_kinder_lotus from "@/assets/images/sahlab_kinder_lotus.jpg";
 
 const images: Record<string, string> = {
-  'גלידת_שפרעם_קטן.jpg': גלידת_שפרעם_קטן,
-  'גלידת_שפרעם_בינוני.jpg': גלידת_שפרעם_בינוני,
-  'גלידת_שפרעם_גדול.jpg': גלידת_שפרעם_גדול,
-  'גלידת_שפרעם_בכוס_מפנקת.jpg': גלידת_שפרעם_בכוס_מפנקת,
-  'גלידת_איטלקית_קטן.jpg': גלידת_איטלקית_קטן,
-  'גלידת_איטלקית_גדול.jpg': גלידת_איטלקית_גדול,
-  'גלידה_איטלקית.jpg': גלידה_איטלקית,
-  'גלידת_אמירקאית_בינוני.jpg': גלידת_אמירקאית_בינוני,
-  'גלידת_אמירקאית_גדול.jpg': גלידת_אמירקאית_גדול,
-  'גלידה_בורמה.jpg': גלידה_בורמה,
-  'גלידה_סחלב_לוטוס.png': גלידה_סחלב_לוטוס,
-  'גלידה_עם_כנאפה_חמה.jpg': גלידה_עם_כנאפה_חמה,
-  'גלידה_עם_קטאייף_חמה.jpg': גלידה_עם_קטאייף_חמה,
-  'גלידה_שומשומית.jpg': גלידה_שומשומית,
-  'גלידת_טיראמיסו.jpg': גלידת_טיראמיסו,
-  'גלידת_ליאלי_ביירות.jpg': גלידת_ליאלי_ביירות,
-  'גלידה_עם_אספרסו.jpg': גלידה_עם_אספרסו,
-  'קינוח_גלידה_שוקולד_דובאי.png': קינוח_גלידה_שוקולד_דובאי,
-  'וואפל_בלגי.jpg': וואפל_בלגי,
-  'וואפל_בלגי_כדור_גלידה_קצפת.jpg': וואפל_בלגי_כדור_גלידה_קצפת,
-  'וואפל_בלגי_דילוקס_2_כדורי_גלידה_קצפת_פירות_שוקלד_חם.jpg': וואפל_בלגי_דילוקס,
-  'קרפ_צרפתי.jpg': קרפ_צרפתי,
-  'קרפ_צרפתי_כדור_גלידה_קצפת.jpg': קרפ_צרפתי_כדור_גלידה_קצפת,
-  'קרואסון_עם_גלידה.jpg': קרואסון_עם_גלידה,
-  'כדורי_פנקייק.jpg': כדורי_פנקייק,
-  'קאפ_קייק_עם_גלידה.png': קאפ_קייק_עם_גלידה,
-  'עוגת_סופלה_עם_גלידה.jpg': עוגת_סופלה_עם_גלידה,
-  'עוגת_גלידת_גבינה_בטעם_תות.jpg': עוגת_גלידת_גבינה_בטעם_תות,
-  'עוגת_גלידת_גבינה_בטעם_פירות_יער.jpg': עוגת_גלידת_גבינה_בטעם_פירות_יער,
-  'עוגת_גלידת_גבינה_בטעם_תפוז.jpg': עוגת_גלידת_גבינה_בטעם_תפוז,
-  'עוגת_גלידה_מריר.jpg': עוגת_גלידה_מריר,
-  'פאי_אגוזים.jpg': פאי_אגוזים,
-  'יוגורט_קטן_עם_מגוון_פירות.jpg': יוגורט_קטן_עם_מגוון_פירות,
-  'יוגורט_גדול_עם_מגוון_פירות.jpg': יוגורט_גדול_עם_מגוון_פירות,
-  'מילקשייק.jpg': מילקשייק,
-  'תפוז.jpg': תפוז,
-  'גזר.jpg': גזר,
-  'תפוחים.jpg': תפוחים,
-  'לימונענע.jpg': לימונענע,
-  'נוריה.jpg': נוריה,
-  'קפוצ_ינו.jpg': קפוצ_ינו,
-  'אספרסו_קצר.jpg': אספרסו_קצר,
-  'נס_קפה.jpg': נס_קפה,
-  'שוקו_חם.jpg': שוקו_חם,
-  'שוקלד_חם.jpg': שוקלד_חם,
-  'תה.jpg': תה,
-  'סחלב_חם.jpg': סחלב_חם,
-  'סחלב_בטעמים_קינדר_לוטוס.jpg': סחלב_בטעמים_קינדר_לוטוס,
+  'glidat_shfaram_small.jpg': glidat_shfaram_small,
+  'glidat_shfaram_medium.jpg': glidat_shfaram_medium,
+  'glidat_shfaram_large.jpg': glidat_shfaram_large,
+  'glidat_shfaram_cup_deluxe.jpg': glidat_shfaram_cup_deluxe,
+  'italian_icecream_small.jpg': italian_icecream_small,
+  'italian_icecream_large.jpg': italian_icecream_large,
+  'italian_icecream.jpg': italian_icecream,
+  'american_icecream_medium.jpg': american_icecream_medium,
+  'american_icecream_large.jpg': american_icecream_large,
+  'burma_icecream.jpg': burma_icecream,
+  'sahlab_lotus_icecream.png': sahlab_lotus_icecream,
+  'icecream_knafeh_hot.jpg': icecream_knafeh_hot,
+  'icecream_kataif_hot.jpg': icecream_kataif_hot,
+  'sesame_icecream.jpg': sesame_icecream,
+  'tiramisu_icecream.jpg': tiramisu_icecream,
+  'layali_beirut_icecream.jpg': layali_beirut_icecream,
+  'icecream_with_espresso.jpg': icecream_with_espresso,
+  'dubai_chocolate_icecream.png': dubai_chocolate_icecream,
+  'belgian_waffle.jpg': belgian_waffle,
+  'belgian_waffle_icecream_whippedcream.jpg': belgian_waffle_icecream_whippedcream,
+  'belgian_waffle_deluxe.jpg': belgian_waffle_deluxe,
+  'french_crepe.jpg': french_crepe,
+  'french_crepe_icecream_whippedcream.jpg': french_crepe_icecream_whippedcream,
+  'croissant_with_icecream.jpg': croissant_with_icecream,
+  'pancake_balls.jpg': pancake_balls,
+  'cupcake_with_icecream.png': cupcake_with_icecream,
+  'souffle_with_icecream.jpg': souffle_with_icecream,
+  'cheesecake_strawberry.jpg': cheesecake_strawberry,
+  'cheesecake_forestberries.jpg': cheesecake_forestberries,
+  'cheesecake_orange.jpg': cheesecake_orange,
+  'darkchoco_icecream_cake.jpg': darkchoco_icecream_cake,
+  'nuts_pie.jpg': nuts_pie,
+  'yogurt_small_fruitmix.jpg': yogurt_small_fruitmix,
+  'yogurt_large_fruitmix.jpg': yogurt_large_fruitmix,
+  'milkshake.jpg': milkshake,
+  'orange_juice.jpg': orange_juice,
+  'carrot_juice.jpg': carrot_juice,
+  'apple_juice.jpg': apple_juice,
+  'lemon_mint_juice.jpg': lemon_mint_juice,
+  'noria_dessert.jpg': noria_dessert,
+  'cappuccino.jpg': cappuccino,
+  'espresso_short.jpg': espresso_short,
+  'nescafe.jpg': nescafe,
+  'hot_chocolate_milk.jpg': hot_chocolate_milk,
+  'hot_chocolate.jpg': hot_chocolate,
+  'tea.jpg': tea,
+  'sahlab_hot.jpg': sahlab_hot,
+  'sahlab_kinder_lotus.jpg': sahlab_kinder_lotus,
 };
 
 export function getMenuImage(filename: string): string {
