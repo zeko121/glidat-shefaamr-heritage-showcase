@@ -126,11 +126,11 @@ const Menu = () => {
           
           {selectedItem && (
             <div className="space-y-6">
-              <div className="aspect-video overflow-hidden rounded-lg bg-muted">
+              <div className="max-h-[70vh] overflow-hidden rounded-lg bg-muted flex items-center justify-center">
                 <img
                   src={getMenuImage(selectedItem.image)}
                   alt={selectedItem.name}
-                  className="w-full h-full object-contain"
+                  className="max-w-full max-h-[70vh] object-contain"
                 />
               </div>
               
