@@ -1,4 +1,5 @@
 import { Instagram, Facebook, Phone } from "lucide-react";
+import logo from "@/assets/images/placeholder.png";
 
 const Footer = () => {
   return (
@@ -6,9 +7,7 @@ const Footer = () => {
       <div className="container mx-auto px-6 py-12">
         <div className="grid md:grid-cols-3 gap-8 text-center md:text-left">
           <div>
-            <h3 className="font-display text-2xl font-bold mb-4 text-foreground">
-              Glidat Shefa'amr
-            </h3>
+            <img src={logo} alt="Glidat Shefa'amr" className="h-16 w-auto object-contain mb-4 mx-auto md:mx-0" />
             <p className="text-muted-foreground font-body italic">
               מייצרים גלידת מסטיק אותנטית מאז 1939
             </p>
