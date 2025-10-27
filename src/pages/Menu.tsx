@@ -78,9 +78,9 @@ const Menu = () => {
         <div className="container mx-auto max-w-7xl">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {filteredItems.map((item, index) => {
-              // Convert image path from Windows format to web format
+              // Build correct URL under /images/
               const imagePath = `/images/${item.image}`;
-              
+            
               return (
                 <div
                   key={index}
@@ -88,16 +88,15 @@ const Menu = () => {
                 >
                   <div className="aspect-square overflow-hidden bg-muted">
                     <img
-                      src={`/${imagePath}`}
+                      src={imagePath}
                       alt={item.name}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       onError={(e) => {
-                        // Fallback to placeholder if image fails to load
                         e.currentTarget.src = '/placeholder.svg';
                       }}
                     />
                   </div>
-                  
+            
                   <div className="p-4">
                     <h3 className="font-display text-lg font-semibold text-foreground mb-2 text-right">
                       {item.name}
@@ -106,11 +105,12 @@ const Menu = () => {
                       {item.price}
                     </p>
                   </div>
-                  
+            
                   <div className="absolute inset-0 border-2 border-transparent group-hover:border-primary transition-all duration-500 rounded-lg" />
                 </div>
               );
             })}
+
           </div>
         </div>
       </section>
