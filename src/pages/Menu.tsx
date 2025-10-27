@@ -23,9 +23,9 @@ const Menu = () => {
   const [selectedItem, setSelectedItem] = useState<(MenuItem & { category: string }) | null>(null);
   const categories: MenuCategory[] = menuData.categories;
 
-  const filteredItems = activeCategory === "all" 
-    ? categories.flatMap(cat => cat.items.map(item => ({ ...item, category: cat.category })))
-    : categories.find(cat => cat.category === activeCategory)?.items.map(item => ({ ...item, category: activeCategory })) || [];
+  const filteredItems = activeCategory !== "all" 
+    ? categories.find(cat => cat.category === activeCategory)?.items.map(item => ({ ...item, category: activeCategory })) || []
+    : [];
 
   return (
     <div className="min-h-screen">
@@ -79,39 +79,82 @@ const Menu = () => {
       {/* Menu Items Grid */}
       <section className="py-20 px-6">
         <div className="container mx-auto max-w-7xl">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {filteredItems.map((item, index) => {
-              const imagePath = getMenuImage(item.image);
-            
-              return (
-                <div
-                  key={index}
-                  onClick={() => setSelectedItem(item)}
-                  className="group relative overflow-hidden rounded-lg bg-card shadow-md transition-all duration-500 hover:shadow-xl hover:-translate-y-1 cursor-pointer"
-                >
-                  <div className="aspect-square overflow-hidden bg-muted">
-                    <img
-                      src={imagePath}
-                      alt={item.name}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
+          {activeCategory === "all" ? (
+            <div className="space-y-16">
+              {categories.map((cat) => (
+                <div key={cat.category} className="space-y-8">
+                  <h2 className="font-display text-3xl font-bold text-foreground text-center">
+                    {cat.category}
+                  </h2>
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    {cat.items.map((item, index) => {
+                      const imagePath = getMenuImage(item.image);
+                      
+                      return (
+                        <div
+                          key={index}
+                          onClick={() => setSelectedItem({ ...item, category: cat.category })}
+                          className="group relative overflow-hidden rounded-lg bg-card shadow-md transition-all duration-500 hover:shadow-xl hover:-translate-y-1 cursor-pointer"
+                        >
+                          <div className="aspect-square overflow-hidden bg-muted">
+                            <img
+                              src={imagePath}
+                              alt={item.name}
+                              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            />
+                          </div>
+                    
+                          <div className="p-4">
+                            <h3 className="font-display text-lg font-semibold text-foreground mb-2 text-right">
+                              {item.name}
+                            </h3>
+                            <p className="font-body text-xl text-primary font-bold text-right">
+                              {item.price}
+                            </p>
+                          </div>
+                    
+                          <div className="absolute inset-0 border-2 border-transparent group-hover:border-primary transition-all duration-500 rounded-lg" />
+                        </div>
+                      );
+                    })}
                   </div>
-            
-                  <div className="p-4">
-                    <h3 className="font-display text-lg font-semibold text-foreground mb-2 text-right">
-                      {item.name}
-                    </h3>
-                    <p className="font-body text-xl text-primary font-bold text-right">
-                      {item.price}
-                    </p>
-                  </div>
-            
-                  <div className="absolute inset-0 border-2 border-transparent group-hover:border-primary transition-all duration-500 rounded-lg" />
                 </div>
-              );
-            })}
-
-          </div>
+              ))}
+            </div>
+          ) : (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {filteredItems.map((item, index) => {
+                const imagePath = getMenuImage(item.image);
+              
+                return (
+                  <div
+                    key={index}
+                    onClick={() => setSelectedItem(item)}
+                    className="group relative overflow-hidden rounded-lg bg-card shadow-md transition-all duration-500 hover:shadow-xl hover:-translate-y-1 cursor-pointer"
+                  >
+                    <div className="aspect-square overflow-hidden bg-muted">
+                      <img
+                        src={imagePath}
+                        alt={item.name}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                    </div>
+              
+                    <div className="p-4">
+                      <h3 className="font-display text-lg font-semibold text-foreground mb-2 text-right">
+                        {item.name}
+                      </h3>
+                      <p className="font-body text-xl text-primary font-bold text-right">
+                        {item.price}
+                      </p>
+                    </div>
+              
+                    <div className="absolute inset-0 border-2 border-transparent group-hover:border-primary transition-all duration-500 rounded-lg" />
+                  </div>
+                );
+              })}
+            </div>
+          )}
         </div>
       </section>
 
