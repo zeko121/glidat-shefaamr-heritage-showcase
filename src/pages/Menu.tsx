@@ -79,7 +79,7 @@ const Menu = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {filteredItems.map((item, index) => {
               // Convert image path from Windows format to web format
-              const imagePath = item.image.replace(/\\/g, '/');
+              const imagePath = `/images/${item.image}`;
               
               return (
                 <div
