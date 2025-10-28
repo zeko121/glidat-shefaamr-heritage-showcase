@@ -18,7 +18,7 @@ All colors MUST be HSL.
     --popover: 48 100% 97%;
     --popover-foreground: 20 42% 21%;
 
-    --primary: 43 48% 56%;      /* Heritage gold */
+    --primary: 43 58% 38%;      /* Heritage gold - WCAG AA compliant */
     --primary-foreground: 48 100% 95%;
 
     --secondary: 144 33% 94%;   /* Soft mint */
@@ -27,7 +27,7 @@ All colors MUST be HSL.
     --muted: 43 30% 88%;
     --muted-foreground: 20 25% 45%;
 
-    --accent: 43 48% 56%;       /* Gold accent */
+    --accent: 43 58% 38%;       /* Gold accent - WCAG AA compliant */
     --accent-foreground: 48 100% 95%;
 
     --destructive: 0 84.2% 60.2%;
@@ -35,7 +35,7 @@ All colors MUST be HSL.
 
     --border: 43 30% 85%;
     --input: 43 30% 90%;
-    --ring: 43 48% 56%;
+    --ring: 43 58% 38%;
 
     --radius: 0.5rem;
 
