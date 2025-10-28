@@ -35,7 +35,7 @@ const Menu = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative h-[40vh] flex items-center justify-center bg-gradient-to-br from-primary/20 to-secondary mt-16">
+      <section className="relative h-[20vh] flex items-center justify-center bg-gradient-to-br from-primary/20 to-secondary mt-16">
         <div className="text-center px-6">
           <h1 className="font-display text-5xl md:text-7xl font-bold text-foreground mb-4">הטעמים שלנו</h1>
           <p className="font-body text-xl text-muted-foreground">מיוצר בעבודת יד עם מסורת, מוגש באהבה</p>
