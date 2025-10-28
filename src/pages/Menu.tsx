@@ -2,9 +2,9 @@ import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
+import BranchCards from "@/components/BranchCards";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { MapPin, X } from "lucide-react";
 import menuData from "@/data/menu.json";
 import { getMenuImage } from "@/utils/menuImages";
 
@@ -185,32 +185,7 @@ const Menu = () => {
         </DialogContent>
       </Dialog>
 
-      {/* Visit Us Section */}
-      <section className="py-20 px-6 bg-gradient-to-br from-secondary to-muted">
-        <div className="container mx-auto max-w-4xl text-center">
-          <MapPin className="w-16 h-16 text-primary mx-auto mb-6" />
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6">בואו לבקר אותנו היום</h2>
-          <p className="font-body text-lg text-muted-foreground mb-8">
-            חוו את הטעמים המיוצרים בעבודת יד שלנו בכל אחד משלושת המיקומים שלנו ברחבי ישראל. כל כדור מיוצר טרי מדי יום
-            באמצעות המתכון המסורתי המשפחתי שלנו.
-          </p>
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            <div className="bg-card rounded-lg p-6 shadow-md">
-              <h3 className="font-display text-xl font-bold text-foreground mb-2">שפרעם המקורי</h3>
-              <p className="font-body text-sm text-muted-foreground">הרובע ההיסטורי, שפרעם</p>
-            </div>
-            <div className="bg-card rounded-lg p-6 shadow-md">
-              <h3 className="font-display text-xl font-bold text-foreground mb-2">סניף חיפה</h3>
-              <p className="font-body text-sm text-muted-foreground">המושבה הגרמנית, חיפה</p>
-            </div>
-            <div className="bg-card rounded-lg p-6 shadow-md">
-              <h3 className="font-display text-xl font-bold text-foreground mb-2">סניף תל אביב</h3>
-              <p className="font-body text-sm text-muted-foreground">נווה צדק, תל אביב</p>
-            </div>
-          </div>
-          <p className="font-body text-primary font-semibold mt-8 text-lg">פתוח יומי: 9:00 – 23:00</p>
-        </div>
-      </section>
+      <BranchCards />
 
       <Footer />
       <ScrollToTopButton />
