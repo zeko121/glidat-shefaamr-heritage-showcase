@@ -26,27 +26,27 @@ const Footer = () => {
             <h4 className="font-display text-lg font-semibold mb-4 text-foreground">
               צור קשר
             </h4>
-            <div className="flex justify-center md:justify-start space-x-4">
+            <div className="flex justify-center md:justify-start space-x-4 space-x-reverse">
               <a
                 href="#"
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className="text-muted-foreground hover:text-primary transition-colors p-2"
                 aria-label="Instagram"
               >
-                <Instagram className="w-5 h-5" />
+                <Instagram className="w-6 h-6" />
               </a>
               <a
                 href="#"
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className="text-muted-foreground hover:text-primary transition-colors p-2"
                 aria-label="Facebook"
               >
-                <Facebook className="w-5 h-5" />
+                <Facebook className="w-6 h-6" />
               </a>
               <a
                 href="#"
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className="text-muted-foreground hover:text-primary transition-colors p-2"
                 aria-label="Phone"
               >
-                <Phone className="w-5 h-5" />
+                <Phone className="w-6 h-6" />
               </a>
             </div>
           </div>
