@@ -4,6 +4,9 @@ import glidat_shfaram_small from "@/assets/images/glidat_shfaram_small.jpg";
 import glidat_shfaram_medium from "@/assets/images/glidat_shfaram_medium.jpg";
 import glidat_shfaram_large from "@/assets/images/glidat_shfaram_large.jpg";
 import glidat_shfaram_cup_deluxe from "@/assets/images/glidat_shfaram_cup_deluxe.jpg";
+import glidat_shfaram_cup_small_TA from "@/assets/images/glidat_shfaram_cup_small_TA.png";
+import glidat_shfaram_cup_small from "@/assets/images/glidat_shfaram_cup_small.png";
+import glidat_shfaram_cup_big_TA from "@/assets/images/glidat_shfaram_cup_big_TA.png";
 import italian_icecream_small from "@/assets/images/italian_icecream_small.jpg";
 import italian_icecream_large from "@/assets/images/italian_icecream_large.jpg";
 import italian_icecream from "@/assets/images/italian_icecream.jpg";
@@ -54,6 +57,9 @@ const images: Record<string, string> = {
   'glidat_shfaram_medium.jpg': glidat_shfaram_medium,
   'glidat_shfaram_large.jpg': glidat_shfaram_large,
   'glidat_shfaram_cup_deluxe.jpg': glidat_shfaram_cup_deluxe,
+  'glidat_shfaram_cup_small_TA.png': glidat_shfaram_cup_small_TA,
+  'glidat_shfaram_cup_small.png': glidat_shfaram_cup_small,
+  'glidat_shfaram_cup_big_TA.png': glidat_shfaram_cup_big_TA,
   'italian_icecream_small.jpg': italian_icecream_small,
   'italian_icecream_large.jpg': italian_icecream_large,
   'italian_icecream.jpg': italian_icecream,

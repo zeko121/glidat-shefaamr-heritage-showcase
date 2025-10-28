@@ -8,7 +8,7 @@
         { "name": "גלידת שפרעם גדול", "price": "29.00₪", "image": "glidat_shfaram_large.jpg" },
         { "name": "גלידת שפרעם בכוס קטן שטוחה", "price": "16.00₪", "image": "glidat_shfaram_cup_small_TA.png" },
         { "name": "גלידת שפרעם בכוס קטן", "price": "22.00₪", "image": "glidat_shfaram_cup_small.png" },
-        { "name": "גלידת שפרעם בכוס גדול לקחת", "price": "20.00₪", "image": "glidat_shfaram_cup_big_TA" },
+        { "name": "גלידת שפרעם בכוס גדול לקחת", "price": "20.00₪", "image": "glidat_shfaram_cup_big_TA.png" },
         { "name": "גלידת שפרעם בכוס מפנקת", "price": "40.00₪", "image": "glidat_shfaram_cup_deluxe.jpg" }
       ]
     },
