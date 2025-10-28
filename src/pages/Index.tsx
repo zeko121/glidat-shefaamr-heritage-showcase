@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import FlavorCard from "@/components/FlavorCard";
+import BranchCards from "@/components/BranchCards";
 import heroImage from "@/assets/hero-image.jpg";
 import flavorMastic from "@/assets/flavor-mastic.jpg";
 import flavorPistachio from "@/assets/flavor-pistachio.jpg";
 import flavorRose from "@/assets/flavor-rose.jpg";
-import { MapPin } from "lucide-react";
 
 const Index = () => {
   const flavors = [
@@ -28,11 +28,6 @@ const Index = () => {
     },
   ];
 
-  const locations = [
-    { name: "שפרעם המקורי", address: "הרובע ההיסטורי, שפרעם" },
-    { name: "סניף חיפה", address: "המושבה הגרמנית, חיפה" },
-    { name: "סניף תל אביב", address: "נווה צדק, תל אביב" },
-  ];
 
   return (
     <div className="min-h-screen">
@@ -118,39 +113,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Visit Us Section */}
-      <section className="py-20 px-6">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-12">
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
-              בואו לבקר אותנו
-            </h2>
-            <p className="font-body text-lg text-muted-foreground">
-              חוו את המורשת שלנו בשלושה מיקומים יפהפיים
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {locations.map((location, index) => (
-              <div
-                key={index}
-                className="bg-card rounded-lg p-8 shadow-md hover:shadow-xl transition-all duration-300 text-center border border-border hover:border-primary"
-              >
-                <MapPin className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="font-display text-2xl font-bold text-foreground mb-2">
-                  {location.name}
-                </h3>
-                <p className="font-body text-muted-foreground mb-4">
-                  {location.address}
-                </p>
-                <p className="font-body text-sm text-primary font-semibold">
-                  פתוח יומי: 9:00 – 23:00
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <BranchCards />
 
       <Footer />
     </div>
