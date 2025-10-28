@@ -70,7 +70,7 @@
         { "name": "נס קפה", "price": "17.00₪", "image": "nescafe.jpg" },
         { "name": "סחלב בטעמים (קינדר/לוטוס)", "price": "25.00₪", "image": "sahlab_kinder_lotus.jpg" },
         { "name": "סחלב חם", "price": "22.00₪", "image": "sahlab_hot.jpg" },
-        { "name": "קפוצ'ינו", "price": "17.99₪", "image": "cappuccino.jpg" },
+        { "name": "קפוצ'ינו", "price": "18.00₪", "image": "cappuccino.jpg" },
         { "name": "שוקו חם", "price": "17.00₪", "image": "hot_chocolate_milk.jpg" },
         { "name": "שוקלד חם", "price": "22.00₪", "image": "hot_chocolate.jpg" },
         { "name": "תה", "price": "12.00₪", "image": "tea.jpg" }
@@ -82,14 +82,14 @@
         { "name": "וואפל בלגי", "price": "35.00₪", "image": "belgian_waffle.jpg" },
         {
           "name": "וואפל בלגי דילוקס + 2 כדורי גלידה + קצפת + פירות + שוקלד חם",
-          "price": "68.99₪",
+          "price": "69.00₪",
           "image": "belgian_waffle_deluxe.jpg"
         },
         { "name": "וואפל בלגי+כדור גלידה+קצפת", "price": "50.00₪", "image": "belgian_waffle_icecream_whippedcream.jpg" },
         { "name": "כדורי פנקייק", "price": "35.00₪", "image": "pancake_balls.jpg" },
         { "name": "קרואסון עם גלידה", "price": "39.00₪", "image": "croissant_with_icecream.jpg" },
-        { "name": "פאי אגוזים", "price": "49.01₪", "image": "nuts_pie.jpg" },
-        { "name": "עוגת סופלה עם גלידה", "price": "49.01₪", "image": "souffle_with_icecream.jpg" },
+        { "name": "פאי אגוזים", "price": "49.00₪", "image": "nuts_pie.jpg" },
+        { "name": "עוגת סופלה עם גלידה", "price": "49.00₪", "image": "souffle_with_icecream.jpg" },
         { "name": "קרפ צרפתי", "price": "30.00₪", "image": "french_crepe.jpg" },
         { "name": "קרפ צרפתי+כדור גלידה+קצפת", "price": "48.00₪", "image": "french_crepe_icecream_whippedcream.jpg" }
       ]
