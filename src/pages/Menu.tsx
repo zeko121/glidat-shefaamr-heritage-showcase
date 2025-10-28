@@ -46,11 +46,11 @@ const Menu = () => {
       {/* Category Filter */}
       <section className="py-12 px-6 bg-card border-b border-border">
         <div className="container mx-auto">
-          <div className="flex flex-row flex-wrap justify-center gap-3 md:gap-4">
+          <div className="flex flex-row flex-wrap justify-center gap-2 md:gap-4">
             <Button
               onClick={() => setActiveCategory("all")}
               variant={activeCategory === "all" ? "default" : "outline"}
-              className={`font-body font-semibold px-4 py-2 md:px-6 md:py-3 rounded-full transition-all duration-300 w-auto ${
+              className={`font-body font-semibold text-xs md:text-sm px-3 py-1.5 md:px-6 md:py-3 rounded-full transition-all duration-300 w-auto ${
                 activeCategory === "all"
                   ? "bg-primary text-primary-foreground shadow-lg"
                   : "border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
@@ -63,7 +63,7 @@ const Menu = () => {
                 key={category.category}
                 onClick={() => setActiveCategory(category.category)}
                 variant={activeCategory === category.category ? "default" : "outline"}
-                className={`font-body font-semibold px-4 py-2 md:px-6 md:py-3 rounded-full transition-all duration-300 w-auto ${
+                className={`font-body font-semibold text-xs md:text-sm px-3 py-1.5 md:px-6 md:py-3 rounded-full transition-all duration-300 w-auto ${
                   activeCategory === category.category
                     ? "bg-primary text-primary-foreground shadow-lg"
                     : "border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
