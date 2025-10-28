@@ -23,51 +23,57 @@ const Menu = () => {
   const [selectedItem, setSelectedItem] = useState<(MenuItem & { category: string }) | null>(null);
   const categories: MenuCategory[] = menuData.categories;
 
-  const filteredItems = activeCategory !== "all" 
-    ? categories.find(cat => cat.category === activeCategory)?.items.map(item => ({ ...item, category: activeCategory })) || []
-    : [];
+  const filteredItems =
+    activeCategory !== "all"
+      ? categories
+          .find((cat) => cat.category === activeCategory)
+          ?.items.map((item) => ({ ...item, category: activeCategory })) || []
+      : [];
 
   return (
     <div className="min-h-screen">
       <Navigation />
-      
+
       {/* Hero Section */}
       <section className="relative h-[40vh] flex items-center justify-center bg-gradient-to-br from-primary/20 to-secondary mt-16">
         <div className="text-center px-6">
-          <h1 className="font-display text-5xl md:text-7xl font-bold text-foreground mb-4">
-            הטעמים שלנו
-          </h1>
-          <p className="font-body text-xl text-muted-foreground">
-            מיוצר בעבודת יד עם מסורת, מוגש באהבה
-          </p>
+          <h1 className="font-display text-5xl md:text-7xl font-bold text-foreground mb-4">הטעמים שלנו</h1>
+          <p className="font-body text-xl text-muted-foreground">מיוצר בעבודת יד עם מסורת, מוגש באהבה</p>
         </div>
       </section>
 
       {/* Category Filter */}
-      <section className="py-12 px-6 bg-card border-b border-border">
-        <div className="container mx-auto">
-          <div className="flex flex-row flex-wrap justify-center gap-2 md:gap-4">
+      <section className="py-4 px-2 md:py-12 md:px-6 bg-card border-b border-border">
+        <div className="w-full md:container md:mx-auto">
+          <div className="flex flex-row flex-wrap justify-center gap-2 md:gap-4 px-2 md:px-0">
             <Button
               onClick={() => setActiveCategory("all")}
               variant={activeCategory === "all" ? "default" : "outline"}
-              className={`font-body font-semibold text-xs md:text-sm px-3 py-1.5 md:px-6 md:py-3 rounded-full transition-all duration-300 w-auto ${
-                activeCategory === "all"
-                  ? "bg-primary text-primary-foreground shadow-lg"
-                  : "border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-              }`}
+              className={`font-body font-semibold text-xs md:text-sm
+                    px-4 py-2 md:px-6 md:py-3
+                    rounded-full transition-all duration-300 w-auto
+                    ${
+                      activeCategory === "all"
+                        ? "bg-primary text-primary-foreground shadow-lg"
+                        : "border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                    }`}
             >
               כל הפריטים
             </Button>
+
             {categories.map((category) => (
               <Button
                 key={category.category}
                 onClick={() => setActiveCategory(category.category)}
                 variant={activeCategory === category.category ? "default" : "outline"}
-                className={`font-body font-semibold text-xs md:text-sm px-3 py-1.5 md:px-6 md:py-3 rounded-full transition-all duration-300 w-auto ${
-                  activeCategory === category.category
-                    ? "bg-primary text-primary-foreground shadow-lg"
-                    : "border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-                }`}
+                className={`font-body font-semibold text-xs md:text-sm
+                      px-4 py-2 md:px-6 md:py-3
+                      rounded-full transition-all duration-300 w-auto
+                      ${
+                        activeCategory === category.category
+                          ? "bg-primary text-primary-foreground shadow-lg"
+                          : "border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                      }`}
               >
                 {category.category}
               </Button>
@@ -83,13 +89,11 @@ const Menu = () => {
             <div className="space-y-16">
               {categories.map((cat) => (
                 <div key={cat.category} className="space-y-8">
-                  <h2 className="font-display text-3xl font-bold text-foreground text-center">
-                    {cat.category}
-                  </h2>
+                  <h2 className="font-display text-3xl font-bold text-foreground text-center">{cat.category}</h2>
                   <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                     {cat.items.map((item, index) => {
                       const imagePath = getMenuImage(item.image);
-                      
+
                       return (
                         <div
                           key={index}
@@ -103,16 +107,14 @@ const Menu = () => {
                               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                             />
                           </div>
-                    
+
                           <div className="p-4">
                             <h3 className="font-display text-lg font-semibold text-foreground mb-2 text-right">
                               {item.name}
                             </h3>
-                            <p className="font-body text-xl text-primary font-bold text-right">
-                              {item.price}
-                            </p>
+                            <p className="font-body text-xl text-primary font-bold text-right">{item.price}</p>
                           </div>
-                    
+
                           <div className="absolute inset-0 border-2 border-transparent group-hover:border-primary transition-all duration-500 rounded-lg" />
                         </div>
                       );
@@ -125,7 +127,7 @@ const Menu = () => {
             <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {filteredItems.map((item, index) => {
                 const imagePath = getMenuImage(item.image);
-              
+
                 return (
                   <div
                     key={index}
@@ -139,16 +141,14 @@ const Menu = () => {
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       />
                     </div>
-              
+
                     <div className="p-4">
                       <h3 className="font-display text-lg font-semibold text-foreground mb-2 text-right">
                         {item.name}
                       </h3>
-                      <p className="font-body text-xl text-primary font-bold text-right">
-                        {item.price}
-                      </p>
+                      <p className="font-body text-xl text-primary font-bold text-right">{item.price}</p>
                     </div>
-              
+
                     <div className="absolute inset-0 border-2 border-transparent group-hover:border-primary transition-all duration-500 rounded-lg" />
                   </div>
                 );
@@ -162,11 +162,9 @@ const Menu = () => {
       <Dialog open={!!selectedItem} onOpenChange={() => setSelectedItem(null)}>
         <DialogContent className="max-w-2xl bg-card">
           <DialogHeader>
-            <DialogTitle className="font-display text-2xl font-bold text-right">
-              {selectedItem?.name}
-            </DialogTitle>
+            <DialogTitle className="font-display text-2xl font-bold text-right">{selectedItem?.name}</DialogTitle>
           </DialogHeader>
-          
+
           {selectedItem && (
             <div className="space-y-6">
               <div className="max-h-[70vh] overflow-hidden rounded-lg bg-muted flex items-center justify-center">
@@ -176,14 +174,10 @@ const Menu = () => {
                   className="max-w-full max-h-[70vh] object-contain"
                 />
               </div>
-              
+
               <div className="flex justify-between items-center">
-                <p className="font-body text-3xl text-primary font-bold">
-                  {selectedItem.price}
-                </p>
-                <p className="font-body text-muted-foreground">
-                  {selectedItem.category}
-                </p>
+                <p className="font-body text-3xl text-primary font-bold">{selectedItem.price}</p>
+                <p className="font-body text-muted-foreground">{selectedItem.category}</p>
               </div>
             </div>
           )}
@@ -194,42 +188,26 @@ const Menu = () => {
       <section className="py-20 px-6 bg-gradient-to-br from-secondary to-muted">
         <div className="container mx-auto max-w-4xl text-center">
           <MapPin className="w-16 h-16 text-primary mx-auto mb-6" />
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6">
-            בואו לבקר אותנו היום
-          </h2>
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6">בואו לבקר אותנו היום</h2>
           <p className="font-body text-lg text-muted-foreground mb-8">
-            חוו את הטעמים המיוצרים בעבודת יד שלנו בכל אחד משלושת המיקומים שלנו ברחבי ישראל.
-            כל כדור מיוצר טרי מדי יום באמצעות המתכון המסורתי המשפחתי שלנו.
+            חוו את הטעמים המיוצרים בעבודת יד שלנו בכל אחד משלושת המיקומים שלנו ברחבי ישראל. כל כדור מיוצר טרי מדי יום
+            באמצעות המתכון המסורתי המשפחתי שלנו.
           </p>
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             <div className="bg-card rounded-lg p-6 shadow-md">
-              <h3 className="font-display text-xl font-bold text-foreground mb-2">
-                שפרעם המקורי
-              </h3>
-              <p className="font-body text-sm text-muted-foreground">
-                הרובע ההיסטורי, שפרעם
-              </p>
+              <h3 className="font-display text-xl font-bold text-foreground mb-2">שפרעם המקורי</h3>
+              <p className="font-body text-sm text-muted-foreground">הרובע ההיסטורי, שפרעם</p>
             </div>
             <div className="bg-card rounded-lg p-6 shadow-md">
-              <h3 className="font-display text-xl font-bold text-foreground mb-2">
-                סניף חיפה
-              </h3>
-              <p className="font-body text-sm text-muted-foreground">
-                המושבה הגרמנית, חיפה
-              </p>
+              <h3 className="font-display text-xl font-bold text-foreground mb-2">סניף חיפה</h3>
+              <p className="font-body text-sm text-muted-foreground">המושבה הגרמנית, חיפה</p>
             </div>
             <div className="bg-card rounded-lg p-6 shadow-md">
-              <h3 className="font-display text-xl font-bold text-foreground mb-2">
-                סניף תל אביב
-              </h3>
-              <p className="font-body text-sm text-muted-foreground">
-                נווה צדק, תל אביב
-              </p>
+              <h3 className="font-display text-xl font-bold text-foreground mb-2">סניף תל אביב</h3>
+              <p className="font-body text-sm text-muted-foreground">נווה צדק, תל אביב</p>
             </div>
           </div>
-          <p className="font-body text-primary font-semibold mt-8 text-lg">
-            פתוח יומי: 9:00 – 23:00
-          </p>
+          <p className="font-body text-primary font-semibold mt-8 text-lg">פתוח יומי: 9:00 – 23:00</p>
         </div>
       </section>
 
