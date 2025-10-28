@@ -100,12 +100,11 @@ const Menu = () => {
                           onClick={() => setSelectedItem({ ...item, category: cat.category })}
                           className="group relative overflow-hidden rounded-lg bg-card shadow-md transition-all duration-500 hover:shadow-xl hover:-translate-y-1 cursor-pointer scale-105 md:scale-100"
                         >
-                          <div className="aspect-square overflow-hidden bg-muted max-w-[768px] max-h-[768px]">
+                          <div className="aspect-square overflow-hidden bg-muted">
                             <img
                               src={imagePath}
                               alt={item.name}
                               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                              loading="lazy"
                             />
                           </div>
 
@@ -135,12 +134,11 @@ const Menu = () => {
                     onClick={() => setSelectedItem(item)}
                     className="group relative overflow-hidden rounded-lg bg-card shadow-md transition-all duration-500 hover:shadow-xl hover:-translate-y-1 cursor-pointer scale-105 md:scale-100"
                   >
-                    <div className="aspect-square overflow-hidden bg-muted max-w-[768px] max-h-[768px]">
+                    <div className="aspect-square overflow-hidden bg-muted">
                       <img
                         src={imagePath}
                         alt={item.name}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        loading="lazy"
                       />
                     </div>
 
