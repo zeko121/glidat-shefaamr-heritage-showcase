@@ -83,14 +83,14 @@ const Menu = () => {
       </section>
 
       {/* Menu Items Grid */}
-      <section className="py-20 px-6">
+      <section className="py-12 px-3 md:py-20 md:px-6">
         <div className="container mx-auto max-w-7xl">
           {activeCategory === "all" ? (
             <div className="space-y-16">
               {categories.map((cat) => (
                 <div key={cat.category} className="space-y-8">
                   <h2 className="font-display text-3xl font-bold text-foreground text-center">{cat.category}</h2>
-                  <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                  <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-6">
                     {cat.items.map((item, index) => {
                       const imagePath = getMenuImage(item.image);
 
@@ -98,7 +98,7 @@ const Menu = () => {
                         <div
                           key={index}
                           onClick={() => setSelectedItem({ ...item, category: cat.category })}
-                          className="group relative overflow-hidden rounded-lg bg-card shadow-md transition-all duration-500 hover:shadow-xl hover:-translate-y-1 cursor-pointer"
+                          className="group relative overflow-hidden rounded-lg bg-card shadow-md transition-all duration-500 hover:shadow-xl hover:-translate-y-1 cursor-pointer scale-105 md:scale-100"
                         >
                           <div className="aspect-square overflow-hidden bg-muted">
                             <img
@@ -124,7 +124,7 @@ const Menu = () => {
               ))}
             </div>
           ) : (
-            <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-6">
               {filteredItems.map((item, index) => {
                 const imagePath = getMenuImage(item.image);
 
@@ -132,7 +132,7 @@ const Menu = () => {
                   <div
                     key={index}
                     onClick={() => setSelectedItem(item)}
-                    className="group relative overflow-hidden rounded-lg bg-card shadow-md transition-all duration-500 hover:shadow-xl hover:-translate-y-1 cursor-pointer"
+                    className="group relative overflow-hidden rounded-lg bg-card shadow-md transition-all duration-500 hover:shadow-xl hover:-translate-y-1 cursor-pointer scale-105 md:scale-100"
                   >
                     <div className="aspect-square overflow-hidden bg-muted">
                       <img
