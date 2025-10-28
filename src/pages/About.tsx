@@ -53,6 +53,9 @@ const About = () => {
                   src={vintageFounder}
                   alt="תמונה עתיקה של המייסדת שלנו"
                   className="w-full h-auto"
+                  width="800"
+                  height="600"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 to-transparent" />
               </div>
@@ -102,6 +105,9 @@ const About = () => {
               src={ingredientsGallery}
               alt="כלים מסורתיים לייצור גלידה ומרכיבים טבעיים"
               className="w-full h-auto"
+              width="1200"
+              height="800"
+              loading="lazy"
             />
           </div>
           <p className="font-body text-center text-lg text-muted-foreground max-w-3xl mx-auto">

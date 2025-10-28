@@ -36,7 +36,7 @@ const Navigation = () => {
 
           {/* Logo on the left (RTL: visually on right) */}
           <Link to="/" className="flex items-center space-x-2">
-            <img src={logo} alt="Glidat Shefa'amr Logo" className="h-10 w-auto object-contain" />
+            <img src={logo} alt="Glidat Shefa'amr Logo" className="h-10 w-auto object-contain" width="492" height="320" />
           </Link>
         </div>
       </div>

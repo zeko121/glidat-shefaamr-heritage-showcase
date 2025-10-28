@@ -40,12 +40,8 @@ const Index = () => {
       
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroImage})` }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-b from-foreground/40 via-foreground/20 to-background" />
-        </div>
+        <img src={heroImage} alt="" className="absolute inset-0 w-full h-full object-cover" width="1920" height="1080" fetchPriority="high" />
+        <div className="absolute inset-0 bg-gradient-to-b from-foreground/40 via-foreground/20 to-background" />
         
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
           <h1 className="font-display text-5xl md:text-7xl font-bold text-background mb-6 animate-fade-in-up">

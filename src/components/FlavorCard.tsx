@@ -20,6 +20,9 @@ const FlavorCard = ({ image, name, description, className }: FlavorCardProps) =>
           src={image}
           alt={`${name} ice cream`}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          width="800"
+          height="800"
+          loading="lazy"
         />
       </div>
       
