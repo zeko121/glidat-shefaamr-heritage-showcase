@@ -26,7 +26,6 @@
       "category": "כינוחי גלידה מיוחדים",
       "items": [
         { "name": "גלידה בורמה", "price": "39.00₪", "image": "burma_icecream.jpg" },
-        { "name": "גלידה סחלב לוטוס", "price": "39.00₪", "image": "sahlab_lotus_icecream.png" },
         { "name": "גלידה עם כנאפה חמה", "price": "39.00₪", "image": "icecream_knafeh_hot.jpg" },
         { "name": "גלידה עם קטאייף חמה", "price": "33.00₪", "image": "icecream_kataif_hot.jpg" },
         { "name": "גלידה שומשומית", "price": "39.00₪", "image": "sesame_icecream.jpg" },
@@ -40,9 +39,10 @@
         },
         { "name": "עוגת גלידת גבינה בטעם תות", "price": "39.00₪", "image": "cheesecake_strawberry.jpg" },
         { "name": "עוגת גלידת גבינה בטעם תפוז", "price": "39.00₪", "image": "cheesecake_orange.jpg" },
-        { "name": "קאפ קייק עם גלידה", "price": "35.00₪", "image": "cupcake_with_icecream.png" },
         { "name": "קינוח גלידה שוקולד דובאי", "price": "39.00₪", "image": "dubai_chocolate_icecream.png" },
-        { "name": "עוגת גלידה מריר", "price": "39.00₪", "image": "darkchoco_icecream_cake.jpg" }
+        { "name": "עוגת גלידה מריר", "price": "39.00₪", "image": "darkchoco_icecream_cake.jpg" },
+        { "name": "גלידה סחלב לוטוס", "price": "39.00₪", "image": "sahlab_lotus_icecream.png" },
+        { "name": "קאפ קייק עם גלידה", "price": "35.00₪", "image": "cupcake_with_icecream.png" }
       ]
     },
     {
@@ -85,7 +85,11 @@
           "price": "69.00₪",
           "image": "belgian_waffle_deluxe.jpg"
         },
-        { "name": "וואפל בלגי+כדור גלידה+קצפת", "price": "50.00₪", "image": "belgian_waffle_icecream_whippedcream.jpg" },
+        {
+          "name": "וואפל בלגי+כדור גלידה+קצפת",
+          "price": "50.00₪",
+          "image": "belgian_waffle_icecream_whippedcream.jpg"
+        },
         { "name": "כדורי פנקייק", "price": "35.00₪", "image": "pancake_balls.jpg" },
         { "name": "קרואסון עם גלידה", "price": "39.00₪", "image": "croissant_with_icecream.jpg" },
         { "name": "פאי אגוזים", "price": "49.00₪", "image": "nuts_pie.jpg" },
