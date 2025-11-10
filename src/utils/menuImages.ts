@@ -1,111 +1,109 @@
-// Import all menu images from assets folder
+// Optimized lazy-loading image utility
+// Only import placeholder upfront, lazy load all other images on-demand
 import placeholder from "@/assets/images/placeholder.png";
-import glidat_shfaram_small from "@/assets/images/glidat_shfaram_small.jpg";
-import glidat_shfaram_medium from "@/assets/images/glidat_shfaram_medium.jpg";
-import glidat_shfaram_large from "@/assets/images/glidat_shfaram_large.jpg";
-import glidat_shfaram_cup_deluxe from "@/assets/images/glidat_shfaram_cup_deluxe.jpg";
-import glidat_shfaram_cup_small_TA from "@/assets/images/glidat_shfaram_cup_small_TA.png";
-import glidat_shfaram_cup_small from "@/assets/images/glidat_shfaram_cup_small.png";
-import glidat_shfaram_cup_big_TA from "@/assets/images/glidat_shfaram_cup_big_TA.png";
-import italian_icecream_small from "@/assets/images/italian_icecream_small.jpg";
-import italian_icecream_large from "@/assets/images/italian_icecream_large.jpg";
-import italian_icecream from "@/assets/images/italian_icecream.jpg";
-import american_icecream_medium from "@/assets/images/american_icecream_medium.jpg";
-import american_icecream_large from "@/assets/images/american_icecream_large.jpg";
-import burma_icecream from "@/assets/images/burma_icecream.jpg";
-import sahlab_lotus_icecream from "@/assets/images/sahlab_lotus_icecream.png";
-import icecream_knafeh_hot from "@/assets/images/icecream_knafeh_hot.jpg";
-import icecream_kataif_hot from "@/assets/images/icecream_kataif_hot.jpg";
-import sesame_icecream from "@/assets/images/sesame_icecream.jpg";
-import tiramisu_icecream from "@/assets/images/tiramisu_icecream.jpg";
-import layali_beirut_icecream from "@/assets/images/layali_beirut_icecream.jpg";
-import icecream_with_espresso from "@/assets/images/icecream_with_espresso.jpg";
-import dubai_chocolate_icecream from "@/assets/images/dubai_chocolate_icecream.png";
-import belgian_waffle from "@/assets/images/belgian_waffle.jpg";
-import belgian_waffle_icecream_whippedcream from "@/assets/images/belgian_waffle_icecream_whippedcream.jpg";
-import belgian_waffle_deluxe from "@/assets/images/belgian_waffle_deluxe.jpg";
-import french_crepe from "@/assets/images/french_crepe.jpg";
-import french_crepe_icecream_whippedcream from "@/assets/images/french_crepe_icecream_whippedcream.jpg";
-import croissant_with_icecream from "@/assets/images/croissant_with_icecream.jpg";
-import pancake_balls from "@/assets/images/pancake_balls.jpg";
-import cupcake_with_icecream from "@/assets/images/cupcake_with_icecream.png";
-import souffle_with_icecream from "@/assets/images/souffle_with_icecream.jpg";
-import cheesecake_strawberry from "@/assets/images/cheesecake_strawberry.jpg";
-import cheesecake_forestberries from "@/assets/images/cheesecake_forestberries.jpg";
-import cheesecake_orange from "@/assets/images/cheesecake_orange.jpg";
-import darkchoco_icecream_cake from "@/assets/images/darkchoco_icecream_cake.jpg";
-import nuts_pie from "@/assets/images/nuts_pie.jpg";
-import yogurt_small_fruitmix from "@/assets/images/yogurt_small_fruitmix.jpg";
-import yogurt_large_fruitmix from "@/assets/images/yogurt_large_fruitmix.jpg";
-import milkshake from "@/assets/images/milkshake.jpg";
-import orange_juice from "@/assets/images/orange_juice.jpg";
-import carrot_juice from "@/assets/images/carrot_juice.jpg";
-import apple_juice from "@/assets/images/apple_juice.jpg";
-import lemon_mint_juice from "@/assets/images/lemon_mint_juice.jpg";
-import noria_dessert from "@/assets/images/noria_dessert.jpg";
-import cappuccino from "@/assets/images/cappuccino.jpg";
-import espresso_short from "@/assets/images/espresso_short.jpg";
-import nescafe from "@/assets/images/nescafe.jpg";
-import hot_chocolate_milk from "@/assets/images/hot_chocolate_milk.jpg";
-import hot_chocolate from "@/assets/images/hot_chocolate.jpg";
-import tea from "@/assets/images/tea.jpg";
-import sahlab_hot from "@/assets/images/sahlab_hot.jpg";
-import sahlab_kinder_lotus from "@/assets/images/sahlab_kinder_lotus.jpg";
 
-const images: Record<string, string> = {
-  'glidat_shfaram_small.jpg': glidat_shfaram_small,
-  'glidat_shfaram_medium.jpg': glidat_shfaram_medium,
-  'glidat_shfaram_large.jpg': glidat_shfaram_large,
-  'glidat_shfaram_cup_deluxe.jpg': glidat_shfaram_cup_deluxe,
-  'glidat_shfaram_cup_small_TA.png': glidat_shfaram_cup_small_TA,
-  'glidat_shfaram_cup_small.png': glidat_shfaram_cup_small,
-  'glidat_shfaram_cup_big_TA.png': glidat_shfaram_cup_big_TA,
-  'italian_icecream_small.jpg': italian_icecream_small,
-  'italian_icecream_large.jpg': italian_icecream_large,
-  'italian_icecream.jpg': italian_icecream,
-  'american_icecream_medium.jpg': american_icecream_medium,
-  'american_icecream_large.jpg': american_icecream_large,
-  'burma_icecream.jpg': burma_icecream,
-  'sahlab_lotus_icecream.png': sahlab_lotus_icecream,
-  'icecream_knafeh_hot.jpg': icecream_knafeh_hot,
-  'icecream_kataif_hot.jpg': icecream_kataif_hot,
-  'sesame_icecream.jpg': sesame_icecream,
-  'tiramisu_icecream.jpg': tiramisu_icecream,
-  'layali_beirut_icecream.jpg': layali_beirut_icecream,
-  'icecream_with_espresso.jpg': icecream_with_espresso,
-  'dubai_chocolate_icecream.png': dubai_chocolate_icecream,
-  'belgian_waffle.jpg': belgian_waffle,
-  'belgian_waffle_icecream_whippedcream.jpg': belgian_waffle_icecream_whippedcream,
-  'belgian_waffle_deluxe.jpg': belgian_waffle_deluxe,
-  'french_crepe.jpg': french_crepe,
-  'french_crepe_icecream_whippedcream.jpg': french_crepe_icecream_whippedcream,
-  'croissant_with_icecream.jpg': croissant_with_icecream,
-  'pancake_balls.jpg': pancake_balls,
-  'cupcake_with_icecream.png': cupcake_with_icecream,
-  'souffle_with_icecream.jpg': souffle_with_icecream,
-  'cheesecake_strawberry.jpg': cheesecake_strawberry,
-  'cheesecake_forestberries.jpg': cheesecake_forestberries,
-  'cheesecake_orange.jpg': cheesecake_orange,
-  'darkchoco_icecream_cake.jpg': darkchoco_icecream_cake,
-  'nuts_pie.jpg': nuts_pie,
-  'yogurt_small_fruitmix.jpg': yogurt_small_fruitmix,
-  'yogurt_large_fruitmix.jpg': yogurt_large_fruitmix,
-  'milkshake.jpg': milkshake,
-  'orange_juice.jpg': orange_juice,
-  'carrot_juice.jpg': carrot_juice,
-  'apple_juice.jpg': apple_juice,
-  'lemon_mint_juice.jpg': lemon_mint_juice,
-  'noria_dessert.jpg': noria_dessert,
-  'cappuccino.jpg': cappuccino,
-  'espresso_short.jpg': espresso_short,
-  'nescafe.jpg': nescafe,
-  'hot_chocolate_milk.jpg': hot_chocolate_milk,
-  'hot_chocolate.jpg': hot_chocolate,
-  'tea.jpg': tea,
-  'sahlab_hot.jpg': sahlab_hot,
-  'sahlab_kinder_lotus.jpg': sahlab_kinder_lotus,
+// Cache for loaded images to prevent duplicate imports
+const imageCache: Record<string, string> = {};
+
+// Map of image filenames to their dynamic import paths
+const imageModules: Record<string, () => Promise<{ default: string }>> = {
+  'glidat_shfaram_small.jpg': () => import('@/assets/images/glidat_shfaram_small.jpg'),
+  'glidat_shfaram_medium.jpg': () => import('@/assets/images/glidat_shfaram_medium.jpg'),
+  'glidat_shfaram_large.jpg': () => import('@/assets/images/glidat_shfaram_large.jpg'),
+  'glidat_shfaram_cup_deluxe.jpg': () => import('@/assets/images/glidat_shfaram_cup_deluxe.jpg'),
+  'glidat_shfaram_cup_small_TA.png': () => import('@/assets/images/glidat_shfaram_cup_small_TA.png'),
+  'glidat_shfaram_cup_small.png': () => import('@/assets/images/glidat_shfaram_cup_small.png'),
+  'glidat_shfaram_cup_big_TA.png': () => import('@/assets/images/glidat_shfaram_cup_big_TA.png'),
+  'italian_icecream_small.jpg': () => import('@/assets/images/italian_icecream_small.jpg'),
+  'italian_icecream_large.jpg': () => import('@/assets/images/italian_icecream_large.jpg'),
+  'italian_icecream.jpg': () => import('@/assets/images/italian_icecream.jpg'),
+  'american_icecream_medium.jpg': () => import('@/assets/images/american_icecream_medium.jpg'),
+  'american_icecream_large.jpg': () => import('@/assets/images/american_icecream_large.jpg'),
+  'burma_icecream.jpg': () => import('@/assets/images/burma_icecream.jpg'),
+  'sahlab_lotus_icecream.png': () => import('@/assets/images/sahlab_lotus_icecream.png'),
+  'icecream_knafeh_hot.jpg': () => import('@/assets/images/icecream_knafeh_hot.jpg'),
+  'icecream_kataif_hot.jpg': () => import('@/assets/images/icecream_kataif_hot.jpg'),
+  'sesame_icecream.jpg': () => import('@/assets/images/sesame_icecream.jpg'),
+  'tiramisu_icecream.jpg': () => import('@/assets/images/tiramisu_icecream.jpg'),
+  'layali_beirut_icecream.jpg': () => import('@/assets/images/layali_beirut_icecream.jpg'),
+  'icecream_with_espresso.jpg': () => import('@/assets/images/icecream_with_espresso.jpg'),
+  'dubai_chocolate_icecream.png': () => import('@/assets/images/dubai_chocolate_icecream.png'),
+  'belgian_waffle.jpg': () => import('@/assets/images/belgian_waffle.jpg'),
+  'belgian_waffle_icecream_whippedcream.jpg': () => import('@/assets/images/belgian_waffle_icecream_whippedcream.jpg'),
+  'belgian_waffle_deluxe.jpg': () => import('@/assets/images/belgian_waffle_deluxe.jpg'),
+  'french_crepe.jpg': () => import('@/assets/images/french_crepe.jpg'),
+  'french_crepe_icecream_whippedcream.jpg': () => import('@/assets/images/french_crepe_icecream_whippedcream.jpg'),
+  'croissant_with_icecream.jpg': () => import('@/assets/images/croissant_with_icecream.jpg'),
+  'pancake_balls.jpg': () => import('@/assets/images/pancake_balls.jpg'),
+  'cupcake_with_icecream.png': () => import('@/assets/images/cupcake_with_icecream.png'),
+  'souffle_with_icecream.jpg': () => import('@/assets/images/souffle_with_icecream.jpg'),
+  'cheesecake_strawberry.jpg': () => import('@/assets/images/cheesecake_strawberry.jpg'),
+  'cheesecake_forestberries.jpg': () => import('@/assets/images/cheesecake_forestberries.jpg'),
+  'cheesecake_orange.jpg': () => import('@/assets/images/cheesecake_orange.jpg'),
+  'darkchoco_icecream_cake.jpg': () => import('@/assets/images/darkchoco_icecream_cake.jpg'),
+  'nuts_pie.jpg': () => import('@/assets/images/nuts_pie.jpg'),
+  'yogurt_small_fruitmix.jpg': () => import('@/assets/images/yogurt_small_fruitmix.jpg'),
+  'yogurt_large_fruitmix.jpg': () => import('@/assets/images/yogurt_large_fruitmix.jpg'),
+  'milkshake.jpg': () => import('@/assets/images/milkshake.jpg'),
+  'orange_juice.jpg': () => import('@/assets/images/orange_juice.jpg'),
+  'carrot_juice.jpg': () => import('@/assets/images/carrot_juice.jpg'),
+  'apple_juice.jpg': () => import('@/assets/images/apple_juice.jpg'),
+  'lemon_mint_juice.jpg': () => import('@/assets/images/lemon_mint_juice.jpg'),
+  'noria_dessert.jpg': () => import('@/assets/images/noria_dessert.jpg'),
+  'cappuccino.jpg': () => import('@/assets/images/cappuccino.jpg'),
+  'espresso_short.jpg': () => import('@/assets/images/espresso_short.jpg'),
+  'nescafe.jpg': () => import('@/assets/images/nescafe.jpg'),
+  'hot_chocolate_milk.jpg': () => import('@/assets/images/hot_chocolate_milk.jpg'),
+  'hot_chocolate.jpg': () => import('@/assets/images/hot_chocolate.jpg'),
+  'tea.jpg': () => import('@/assets/images/tea.jpg'),
+  'sahlab_hot.jpg': () => import('@/assets/images/sahlab_hot.jpg'),
+  'sahlab_kinder_lotus.jpg': () => import('@/assets/images/sahlab_kinder_lotus.jpg'),
 };
 
-export function getMenuImage(filename: string): string {
-  return images[filename] || placeholder;
+/**
+ * Asynchronously loads a menu image with caching
+ * Returns placeholder immediately, loads actual image in background
+ * @param filename - The image filename from menu.json
+ * @returns Promise resolving to the image URL
+ */
+export async function getMenuImage(filename: string): Promise<string> {
+  // Return from cache if already loaded
+  if (imageCache[filename]) {
+    return imageCache[filename];
+  }
+
+  // Get the import function for this filename
+  const importFn = imageModules[filename];
+
+  if (!importFn) {
+    console.warn(`Image not found: ${filename}, using placeholder`);
+    return placeholder;
+  }
+
+  try {
+    const module = await importFn();
+    const imageUrl = module.default;
+    imageCache[filename] = imageUrl;
+    return imageUrl;
+  } catch (error) {
+    console.error(`Failed to load image: ${filename}`, error);
+    return placeholder;
+  }
+}
+
+/**
+ * Synchronously returns placeholder for immediate rendering
+ * Use this for initial render, then update with getMenuImage()
+ */
+export function getPlaceholderImage(): string {
+  return placeholder;
+}
+
+/**
+ * Preload images for a specific category to improve UX
+ * Call this when user hovers over or selects a category
+ * @param filenames - Array of image filenames to preload
+ */
+export async function preloadImages(filenames: string[]): Promise<void> {
+  await Promise.all(filenames.map(filename => getMenuImage(filename)));
 }

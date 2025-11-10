@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
@@ -6,7 +6,7 @@ import BranchCards from "@/components/BranchCards";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import menuData from "@/data/menu.json";
-import { getMenuImage } from "@/utils/menuImages";
+import { getMenuImage, getPlaceholderImage, preloadImages } from "@/utils/menuImages";
 
 interface MenuItem {
   name: string;
@@ -19,17 +19,92 @@ interface MenuCategory {
   items: MenuItem[];
 }
 
+// Sanitize text to prevent XSS attacks
+const sanitizeText = (text: string): string => {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+};
+
+// Validate menu data structure
+const validateMenuData = (data: any): MenuCategory[] => {
+  if (!data || !Array.isArray(data.categories)) {
+    console.error('Invalid menu data structure');
+    return [];
+  }
+
+  return data.categories.filter((cat: any) => {
+    return cat &&
+           typeof cat.category === 'string' &&
+           Array.isArray(cat.items) &&
+           cat.items.every((item: any) =>
+             item &&
+             typeof item.name === 'string' &&
+             typeof item.price === 'string' &&
+             typeof item.image === 'string'
+           );
+  });
+};
+
 const Menu = () => {
   const [activeCategory, setActiveCategory] = useState<string>("all");
   const [selectedItem, setSelectedItem] = useState<(MenuItem & { category: string }) | null>(null);
-  const categories: MenuCategory[] = menuData.categories;
+  const [imageCache, setImageCache] = useState<Record<string, string>>({});
 
-  const filteredItems =
+  // Validate menu data on mount
+  const categories: MenuCategory[] = useMemo(() => validateMenuData(menuData), []);
+
+  const filteredItems = useMemo(() =>
     activeCategory !== "all"
       ? categories
           .find((cat) => cat.category === activeCategory)
           ?.items.map((item) => ({ ...item, category: activeCategory })) || []
-      : [];
+      : []
+  , [activeCategory, categories]);
+
+  // Load image asynchronously with caching
+  const loadImage = useCallback(async (filename: string) => {
+    if (imageCache[filename]) return; // Already loaded
+
+    try {
+      const imageUrl = await getMenuImage(filename);
+      setImageCache(prev => ({ ...prev, [filename]: imageUrl }));
+    } catch (error) {
+      console.error(`Failed to load image: ${filename}`, error);
+    }
+  }, [imageCache]);
+
+  // Preload images when category changes
+  useEffect(() => {
+    const imagesToLoad = activeCategory === "all"
+      ? categories.flatMap(cat => cat.items.map(item => item.image))
+      : filteredItems.map(item => item.image);
+
+    // Load first 10 images immediately, rest in background
+    const priorityImages = imagesToLoad.slice(0, 10);
+    const backgroundImages = imagesToLoad.slice(10);
+
+    priorityImages.forEach(loadImage);
+
+    // Load remaining images with slight delay to prioritize visible content
+    setTimeout(() => {
+      backgroundImages.forEach(loadImage);
+    }, 100);
+  }, [activeCategory, filteredItems, categories, loadImage]);
+
+  // Preload category images on hover for faster switching
+  const handleCategoryHover = useCallback((category: string) => {
+    const cat = categories.find(c => c.category === category);
+    if (cat) {
+      const filenames = cat.items.map(item => item.image);
+      preloadImages(filenames).catch(console.error);
+    }
+  }, [categories]);
+
+  // Get cached image or placeholder
+  const getImageSrc = useCallback((filename: string): string => {
+    return imageCache[filename] || getPlaceholderImage();
+  }, [imageCache]);
 
   return (
     <div className="min-h-screen">
@@ -66,6 +141,7 @@ const Menu = () => {
               <Button
                 key={category.category}
                 onClick={() => setActiveCategory(category.category)}
+                onMouseEnter={() => handleCategoryHover(category.category)}
                 variant={activeCategory === category.category ? "default" : "outline"}
                 className={`font-body font-semibold text-xs md:text-sm
                       px-4 py-2 md:px-6 md:py-3
@@ -93,18 +169,20 @@ const Menu = () => {
                   <h2 className="font-display text-3xl font-bold text-foreground text-center">{cat.category}</h2>
                   <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-6">
                     {cat.items.map((item, index) => {
-                      const imagePath = getMenuImage(item.image);
+                      const imageSrc = getImageSrc(item.image);
 
                       return (
                         <div
-                          key={index}
+                          key={`${cat.category}-${index}`}
                           onClick={() => setSelectedItem({ ...item, category: cat.category })}
                           className="group relative overflow-hidden rounded-lg bg-card shadow-md transition-all duration-500 hover:shadow-xl hover:-translate-y-1 cursor-pointer scale-105 md:scale-100"
                         >
                           <div className="aspect-square overflow-hidden bg-muted">
                             <img
-                              src={imagePath}
-                              alt={item.name}
+                              src={imageSrc}
+                              alt={sanitizeText(item.name)}
+                              loading="lazy"
+                              decoding="async"
                               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                             />
                           </div>
@@ -127,18 +205,20 @@ const Menu = () => {
           ) : (
             <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-6">
               {filteredItems.map((item, index) => {
-                const imagePath = getMenuImage(item.image);
+                const imageSrc = getImageSrc(item.image);
 
                 return (
                   <div
-                    key={index}
+                    key={`${item.category}-${index}`}
                     onClick={() => setSelectedItem(item)}
                     className="group relative overflow-hidden rounded-lg bg-card shadow-md transition-all duration-500 hover:shadow-xl hover:-translate-y-1 cursor-pointer scale-105 md:scale-100"
                   >
                     <div className="aspect-square overflow-hidden bg-muted">
                       <img
-                        src={imagePath}
-                        alt={item.name}
+                        src={imageSrc}
+                        alt={sanitizeText(item.name)}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       />
                     </div>
@@ -170,8 +250,9 @@ const Menu = () => {
             <div className="space-y-6">
               <div className="max-h-[70vh] overflow-hidden rounded-lg bg-muted flex items-center justify-center">
                 <img
-                  src={getMenuImage(selectedItem.image)}
-                  alt={selectedItem.name}
+                  src={getImageSrc(selectedItem.image)}
+                  alt={sanitizeText(selectedItem.name)}
+                  loading="eager"
                   className="max-w-full max-h-[70vh] object-contain"
                 />
               </div>

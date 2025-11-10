@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, memo } from "react";
 import { Menu, X } from "lucide-react";
 import {
   Sheet,
@@ -9,7 +9,30 @@ import {
 } from "@/components/ui/sheet";
 import logo from "@/assets/images/placeholder.png";
 
-const Navigation = () => {
+// Throttle function for performance optimization
+const throttle = (func: (...args: any[]) => void, delay: number) => {
+  let timeoutId: NodeJS.Timeout | null = null;
+  let lastRan = 0;
+
+  return (...args: any[]) => {
+    const now = Date.now();
+
+    if (!lastRan || now - lastRan >= delay) {
+      func(...args);
+      lastRan = now;
+    } else {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+      timeoutId = setTimeout(() => {
+        func(...args);
+        lastRan = Date.now();
+      }, delay - (now - lastRan));
+    }
+  };
+};
+
+const Navigation = memo(() => {
   const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -20,14 +43,18 @@ const Navigation = () => {
     { name: "תפריט", path: "/menu" },
   ];
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+  // Memoized scroll handler
+  const handleScroll = useCallback(() => {
+    setIsScrolled(window.scrollY > 20);
   }, []);
+
+  useEffect(() => {
+    // Throttle scroll events to 100ms for better performance
+    const throttledScroll = throttle(handleScroll, 100);
+
+    window.addEventListener("scroll", throttledScroll, { passive: true });
+    return () => window.removeEventListener("scroll", throttledScroll as EventListener);
+  }, [handleScroll]);
 
   return (
     <nav
@@ -124,6 +151,8 @@ const Navigation = () => {
       </div>
     </nav>
   );
-};
+});
+
+Navigation.displayName = 'Navigation';
 
 export default Navigation;
